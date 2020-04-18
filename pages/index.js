@@ -22,7 +22,7 @@ const  Default = (props) => {
                 description={`Enjoy an open source students marketplace. enjoy fresh meals from ovo frys inn.`}
                 url={`www.allcomrades.co.ke`}
                 title={`allcomrades platform`}
-                image='/static/images/home.jpg'
+                image='https://www.usiu.ac.ke/assets/image/apply/Step5AboutYou.jpg'
                 />
 
                 <p>The real content of redux </p>
