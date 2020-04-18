@@ -18,12 +18,7 @@ const  Default = (props) => {
         return (
             <Layout>
 
-                <Meta
-                description={`Enjoy an open source students marketplace. enjoy fresh meals from ovo frys inn.`}
-                url={`www.allcomrades.co.ke`}
-                title={`allcomrades platform`}
-                image='/static/images/home.jpg'
-                />
+                <Meta />
 
                 <p>The real content of redux </p>
                 <Link href="/table">

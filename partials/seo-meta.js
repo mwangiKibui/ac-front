@@ -1,3 +1,5 @@
+//react
+import React from 'react';
 //core-components
 import Head from 'next/head';
 
@@ -27,5 +29,11 @@ const Meta = (props) => (
     </Head>
 );
 
-
+Meta.defaultProps = {
+    description:'A comrades platform for student marketplace, business and influencer marketing and much more',
+    url:'https://allcomrades.co.ke',
+    title:'allcomrades platform',
+    desc:'A platform for karatina university students to sell and interact with businesses.',
+    image:'https://karu-api.s3.amazonaws.com/adverts/1586668921708.jpg'
+}
 export default Meta;
