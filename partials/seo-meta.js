@@ -22,12 +22,14 @@ const Meta = (props) => (
         <meta name="twitter:description" content={props.description}/>
         <meta name="twitter:site" content={props.url} />
         <meta name="twitter:creator" content="allcomrades platform" />
-        <meta name="twitter:image:src" content={props.image} />
+        <meta name="twitter:image" content={props.image} />
         <meta name="twitter:image:width" content="1200" />
         <meta name="twitter:image:height" content="600" />
         <link rel="icon" type="image/png" href="/static/images/favicon.ico" />
         <link rel="apple-touch-icon" href="/static/images/favicon.ico" />        
-        <meta property="og:image:src" content={props.image} />
+        <meta property="og:image" content={props.image} />
+        <meta name="og:image:width" content="1200" />
+        <meta name="og:image:height" content="600" />
         
     </Head>
 );
