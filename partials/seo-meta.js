@@ -34,6 +34,6 @@ Meta.defaultProps = {
     url:'https://allcomrades.co.ke',
     title:'allcomrades platform',
     desc:'A platform for karatina university students to sell and interact with businesses.',
-    image:'/static/images/corona_cover.jpeg'
+    image:'/static/images/corona_cover.jpg'
 }
 export default Meta;
