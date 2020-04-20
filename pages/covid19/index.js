@@ -15,7 +15,7 @@ const Index = (props) =>  {
         title="Corona Virus Outbreak. | allcomrades cares"
         description="Get realtime data of infected,recovered and death cases resulting from covid19 from all over the world"
         url="https://allcomrades.co.ke/covid19"
-        image="/static/images/corona_cover.jpg"
+        image="/static/images/nba.webp"
         />
         <section className="covid19">
             <div className="container">
