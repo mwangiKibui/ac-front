@@ -13,10 +13,10 @@ const Index = (props) =>  {
     return  (
         <Layout>
         <Meta
-        title="Corona Virus Outbreak. | allcomrades cares"
+        title="Corona Virus Outbreak"
         description="Get realtime data of infected,recovered and death cases resulting from covid19 from all over the world"
         url="https://allcomrades.co.ke/covid19"
-        image={`https://karu-api.s3.amazonaws.com/adverts/1587370699472.jpeg`}
+        image="/static/images/corona_cover.jpeg"
         />
         <section className="covid19">
             <div className="container">
