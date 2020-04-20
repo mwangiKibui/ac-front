@@ -22,10 +22,13 @@ const Meta = (props) => (
         <meta name="twitter:description" content={props.description}/>
         <meta name="twitter:site" content={props.url} />
         <meta name="twitter:creator" content="allcomrades platform" />
+        <meta name="twitter:image:src" content={props.image} />
+        <meta name="twitter:image:width" content="1200" />
+        <meta name="twitter:image:height" content="600" />
         <link rel="icon" type="image/png" href="/static/images/favicon.ico" />
         <link rel="apple-touch-icon" href="/static/images/favicon.ico" />        
         <meta property="og:image" content={props.image} />
-        <meta name="twitter:image" content={props.image} />
+        
     </Head>
 );
 
@@ -34,6 +37,6 @@ Meta.defaultProps = {
     url:'https://allcomrades.co.ke',
     title:'allcomrades platform',
     desc:'A platform for karatina university students to sell and interact with businesses.',
-    image:'/static/images/corona_cover.jpg'
+    image:'https://karu-api.s3.amazonaws.com/adverts/1587370699472.jpeg'
 }
 export default Meta;
