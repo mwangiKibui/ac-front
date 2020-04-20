@@ -29,7 +29,7 @@ const  Default = (props) => {
         return (
             <Layout>
 
-                <Meta />
+                <Meta image="https://karu-api.s3.amazonaws.com/adverts/1587206512007.webp"/>
                 <BlockHome />
                 <BlockAds products={props.products}/>
                 <BlockServices services={props.services} />
