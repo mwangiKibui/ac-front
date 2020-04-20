@@ -27,13 +27,13 @@ const Meta = (props) => (
         <meta name="twitter:image:height" content="600" />
         <link rel="icon" type="image/png" href="/static/images/favicon.ico" />
         <link rel="apple-touch-icon" href="/static/images/favicon.ico" />        
-        <meta property="og:image" content={props.image} />
+        <meta property="og:image:src" content={props.image} />
         
     </Head>
 );
 
 Meta.defaultProps = {
-    
+
     description:'A comrades platform for student marketplace, business and influencer marketing and much more',
     url:'https://allcomrades.co.ke',
     title:'allcomrades platform',
