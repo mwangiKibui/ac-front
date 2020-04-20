@@ -7,7 +7,7 @@ import Covid19 from '../../components/covid19';
 import Layout from '../../components/Layout';
 import Meta from '../../partials/seo-meta';
 //image
-import img from '../../public/static/images/corona_cover.jpeg';
+import img from '../../public/static/images/corona_cover.jpg';
 
 const Index = (props) =>  {
     
