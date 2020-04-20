@@ -364,6 +364,308 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_4___default.a {
 
 /***/ }),
 
+/***/ "./store/bs/actions.js":
+/*!*****************************!*\
+  !*** ./store/bs/actions.js ***!
+  \*****************************/
+/*! exports provided: fetchOvo, requestOrder, sendReview, bsSub, claimOrder, fetchProducts */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchOvo", function() { return fetchOvo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestOrder", function() { return requestOrder; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendReview", function() { return sendReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bsSub", function() { return bsSub; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "claimOrder", function() { return claimOrder; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchProducts", function() { return fetchProducts; });
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./store/bs/types.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const URL = `https://karuapi.herokuapp.com/api`;
+
+const setLoading = () => {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_0__["BS_LOADING"]
+  };
+};
+
+const setError = data => {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_0__["BS_ERROR"],
+    payload: data
+  };
+};
+
+const setBs = data => {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_0__["LOAD_BS"],
+    payload: data
+  };
+};
+
+const setMessage = data => {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_0__["BS_MESSAGE"],
+    payload: data
+  };
+};
+
+const setRequest = data => {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_ORDER"],
+    payload: data
+  };
+};
+
+const setMeals = data => {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_0__["LOAD_MEALS"],
+    payload: data
+  };
+};
+
+const setDrinks = data => {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_0__["LOAD_DRINKS"],
+    payload: data
+  };
+};
+
+const setOffers = data => {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_0__["LOAD_OFFERS"],
+    payload: data
+  };
+};
+
+const fetchOvo = () => {
+  //we are fetching ovo by their username
+  const data = {
+    username: 'ovo_fries'
+  };
+  return async dispatch => {
+    dispatch(setLoading());
+    await axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(`${URL}/bs/fetchBs`, data, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(response => {
+      return dispatch(setBs(response.data.message));
+    }).catch(console.log);
+  };
+}; //request for order
+
+const requestOrder = data => {
+  return async dispatch => {
+    dispatch(setLoading());
+    await axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(`${URL}/bs/addOrder`, data, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(response => {
+      return dispatch(setRequest(response.data.message));
+    }).catch(console.log);
+  };
+}; //leaving a review
+
+const sendReview = data => {
+  return async dispatch => {
+    dispatch(setLoading());
+    await axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(`${URL}/bs/addReview`, data, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(() => {
+      return dispatch(setMessage(`Review sent`));
+    }).catch(console.log);
+  };
+}; //change on the server side
+//today is the night 
+// we are going live
+
+const bsSub = (id, data) => {
+  return async dispatch => {
+    dispatch(setLoading());
+    await axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(`${URL}/bs/addSubs/${id}`, data, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(response => {
+      return dispatch(setMessage(response.data.message));
+    }).catch(console.log);
+  };
+};
+const claimOrder = data => {
+  return async dispatch => {
+    dispatch(setLoading());
+    await axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(`${URL}/orders/claimOrder`, data, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(response => {
+      let result = response.data.success;
+      if (!result) return dispatch(setError(response.data.message));
+      return dispatch(setMessage(response.data.message));
+    }).catch(console.log);
+  };
+}; //fetching products
+
+const fetchProducts = () => {
+  return async dispatch => {
+    dispatch(setLoading());
+    await axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(`${URL}/bs/products`).then(response => {
+      //we shall set the meals,drinks and the offers
+      dispatch(setMeals(response.data.meals));
+      dispatch(setDrinks(response.data.drinks));
+      return dispatch(setOffers(response.data.offers));
+    }).catch(console.log);
+  };
+};
+
+/***/ }),
+
+/***/ "./store/bs/index.js":
+/*!***************************!*\
+  !*** ./store/bs/index.js ***!
+  \***************************/
+/*! exports provided: fetchOvo, requestOrder, sendReview, bsSub, claimOrder, fetchProducts, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reducer */ "./store/bs/reducer.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions */ "./store/bs/actions.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fetchOvo", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["fetchOvo"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "requestOrder", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["requestOrder"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sendReview", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["sendReview"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "bsSub", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["bsSub"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "claimOrder", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["claimOrder"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fetchProducts", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["fetchProducts"]; });
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (_reducer__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
+/***/ "./store/bs/reducer.js":
+/*!*****************************!*\
+  !*** ./store/bs/reducer.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./store/bs/types.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+const initialState = {
+  loading: false,
+  error: '',
+  message: '',
+  bs: null,
+  meals: [],
+  drinks: [],
+  offers: []
+};
+/* harmony default export */ __webpack_exports__["default"] = ((state = initialState, action) => {
+  switch (action.type) {
+    case _types__WEBPACK_IMPORTED_MODULE_0__["BS_LOADING"]:
+      return _objectSpread({}, state, {
+        error: '',
+        message: '',
+        loading: true
+      });
+
+    case _types__WEBPACK_IMPORTED_MODULE_0__["BS_ERROR"]:
+      return _objectSpread({}, state, {
+        loading: false,
+        error: action.payload
+      });
+
+    case _types__WEBPACK_IMPORTED_MODULE_0__["LOAD_BS"]:
+      return _objectSpread({}, state, {
+        loading: false,
+        bs: action.payload
+      });
+
+    case _types__WEBPACK_IMPORTED_MODULE_0__["BS_MESSAGE"]:
+      return _objectSpread({}, state, {
+        loading: false,
+        message: action.payload
+      });
+
+    case _types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_ORDER"]:
+      return _objectSpread({}, state, {
+        loading: false,
+        message: action.payload
+      });
+
+    case _types__WEBPACK_IMPORTED_MODULE_0__["LOAD_MEALS"]:
+      return _objectSpread({}, state, {
+        meals: action.payload
+      });
+
+    case _types__WEBPACK_IMPORTED_MODULE_0__["LOAD_DRINKS"]:
+      return _objectSpread({}, state, {
+        drinks: action.payload
+      });
+
+    case _types__WEBPACK_IMPORTED_MODULE_0__["LOAD_OFFERS"]:
+      return _objectSpread({}, state, {
+        offers: action.payload,
+        loading: false
+      });
+
+    default:
+      return _objectSpread({}, state);
+  }
+});
+
+/***/ }),
+
+/***/ "./store/bs/types.js":
+/*!***************************!*\
+  !*** ./store/bs/types.js ***!
+  \***************************/
+/*! exports provided: BS_LOADING, BS_ERROR, BS_MESSAGE, LOAD_BS, REQUEST_ORDER, LOAD_MEALS, LOAD_OFFERS, LOAD_DRINKS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BS_LOADING", function() { return BS_LOADING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BS_ERROR", function() { return BS_ERROR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BS_MESSAGE", function() { return BS_MESSAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOAD_BS", function() { return LOAD_BS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_ORDER", function() { return REQUEST_ORDER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOAD_MEALS", function() { return LOAD_MEALS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOAD_OFFERS", function() { return LOAD_OFFERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOAD_DRINKS", function() { return LOAD_DRINKS; });
+const BS_LOADING = "BS_LOADING";
+const BS_ERROR = "BS_ERROR";
+const BS_MESSAGE = "BS_MESSAGE";
+const LOAD_BS = "LOAD_BS";
+const REQUEST_ORDER = "REQUEST_ORDER";
+const LOAD_MEALS = "LOAD_MEALS";
+const LOAD_OFFERS = "LOAD_OFFERS";
+const LOAD_DRINKS = "LOAD_DRINKS";
+
+/***/ }),
+
 /***/ "./store/covid19/actions.js":
 /*!**********************************!*\
   !*** ./store/covid19/actions.js ***!
@@ -761,7 +1063,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services */ "./store/services/index.js");
 /* harmony import */ var _influencers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./influencers */ "./store/influencers/index.js");
 /* harmony import */ var _covid19__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./covid19 */ "./store/covid19/index.js");
+/* harmony import */ var _bs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./bs */ "./store/bs/index.js");
  //custom reducers
+
 
 
 
@@ -779,7 +1083,8 @@ __webpack_require__.r(__webpack_exports__);
   quickview: _quickview__WEBPACK_IMPORTED_MODULE_5__["default"],
   services: _services__WEBPACK_IMPORTED_MODULE_6__["default"],
   influencers: _influencers__WEBPACK_IMPORTED_MODULE_7__["default"],
-  covid19: _covid19__WEBPACK_IMPORTED_MODULE_8__["default"]
+  covid19: _covid19__WEBPACK_IMPORTED_MODULE_8__["default"],
+  bs: _bs__WEBPACK_IMPORTED_MODULE_9__["default"]
 }));
 
 /***/ }),

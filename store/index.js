@@ -9,6 +9,7 @@ import quickViewReducer from './quickview';
 import servicesReducer from './services';
 import influencersReducer from './influencers';
 import covid19Reducer from './covid19';
+import bsReducer from './bs';
 
 export default combineReducers({
     hostels:hostelReducer,
@@ -18,5 +19,6 @@ export default combineReducers({
     quickview:quickViewReducer,
     services:servicesReducer,
     influencers:influencersReducer,
-    covid19:covid19Reducer
+    covid19:covid19Reducer,
+    bs:bsReducer
 });

@@ -12151,6 +12151,387 @@ var MyApp = /*#__PURE__*/function (_App) {
 
 /***/ }),
 
+/***/ "./store/bs/actions.js":
+/*!*****************************!*\
+  !*** ./store/bs/actions.js ***!
+  \*****************************/
+/*! exports provided: fetchOvo, requestOrder, sendReview, bsSub, claimOrder, fetchProducts */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchOvo", function() { return fetchOvo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestOrder", function() { return requestOrder; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendReview", function() { return sendReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bsSub", function() { return bsSub; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "claimOrder", function() { return claimOrder; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchProducts", function() { return fetchProducts; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./types */ "./store/bs/types.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+var URL = "https://karuapi.herokuapp.com/api";
+
+var setLoading = function setLoading() {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_1__["BS_LOADING"]
+  };
+};
+
+var setError = function setError(data) {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_1__["BS_ERROR"],
+    payload: data
+  };
+};
+
+var setBs = function setBs(data) {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_1__["LOAD_BS"],
+    payload: data
+  };
+};
+
+var setMessage = function setMessage(data) {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_1__["BS_MESSAGE"],
+    payload: data
+  };
+};
+
+var setRequest = function setRequest(data) {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_1__["REQUEST_ORDER"],
+    payload: data
+  };
+};
+
+var setMeals = function setMeals(data) {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_1__["LOAD_MEALS"],
+    payload: data
+  };
+};
+
+var setDrinks = function setDrinks(data) {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_1__["LOAD_DRINKS"],
+    payload: data
+  };
+};
+
+var setOffers = function setOffers(data) {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_1__["LOAD_OFFERS"],
+    payload: data
+  };
+};
+
+var fetchOvo = function fetchOvo() {
+  //we are fetching ovo by their username
+  var data = {
+    username: 'ovo_fries'
+  };
+  return function _callee(dispatch) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            dispatch(setLoading());
+            _context.next = 3;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("".concat(URL, "/bs/fetchBs"), data, {
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            }).then(function (response) {
+              return dispatch(setBs(response.data.message));
+            })["catch"](console.log));
+
+          case 3:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, null, null, null, Promise);
+  };
+}; //request for order
+
+var requestOrder = function requestOrder(data) {
+  return function _callee2(dispatch) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            dispatch(setLoading());
+            _context2.next = 3;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("".concat(URL, "/bs/addOrder"), data, {
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            }).then(function (response) {
+              return dispatch(setRequest(response.data.message));
+            })["catch"](console.log));
+
+          case 3:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, null, null, null, Promise);
+  };
+}; //leaving a review
+
+var sendReview = function sendReview(data) {
+  return function _callee3(dispatch) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            dispatch(setLoading());
+            _context3.next = 3;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("".concat(URL, "/bs/addReview"), data, {
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            }).then(function () {
+              return dispatch(setMessage("Review sent"));
+            })["catch"](console.log));
+
+          case 3:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, null, null, null, Promise);
+  };
+}; //change on the server side
+//today is the night 
+// we are going live
+
+var bsSub = function bsSub(id, data) {
+  return function _callee4(dispatch) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            dispatch(setLoading());
+            _context4.next = 3;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("".concat(URL, "/bs/addSubs/").concat(id), data, {
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            }).then(function (response) {
+              return dispatch(setMessage(response.data.message));
+            })["catch"](console.log));
+
+          case 3:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, null, null, null, Promise);
+  };
+};
+var claimOrder = function claimOrder(data) {
+  return function _callee5(dispatch) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            dispatch(setLoading());
+            _context5.next = 3;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("".concat(URL, "/orders/claimOrder"), data, {
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            }).then(function (response) {
+              var result = response.data.success;
+              if (!result) return dispatch(setError(response.data.message));
+              return dispatch(setMessage(response.data.message));
+            })["catch"](console.log));
+
+          case 3:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, null, null, null, Promise);
+  };
+}; //fetching products
+
+var fetchProducts = function fetchProducts() {
+  return function _callee6(dispatch) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee6$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            dispatch(setLoading());
+            _context6.next = 3;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("".concat(URL, "/bs/products")).then(function (response) {
+              //we shall set the meals,drinks and the offers
+              dispatch(setMeals(response.data.meals));
+              dispatch(setDrinks(response.data.drinks));
+              return dispatch(setOffers(response.data.offers));
+            })["catch"](console.log));
+
+          case 3:
+          case "end":
+            return _context6.stop();
+        }
+      }
+    }, null, null, null, Promise);
+  };
+};
+
+/***/ }),
+
+/***/ "./store/bs/index.js":
+/*!***************************!*\
+  !*** ./store/bs/index.js ***!
+  \***************************/
+/*! exports provided: fetchOvo, requestOrder, sendReview, bsSub, claimOrder, fetchProducts, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reducer */ "./store/bs/reducer.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions */ "./store/bs/actions.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fetchOvo", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["fetchOvo"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "requestOrder", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["requestOrder"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sendReview", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["sendReview"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "bsSub", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["bsSub"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "claimOrder", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["claimOrder"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fetchProducts", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["fetchProducts"]; });
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (_reducer__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
+/***/ "./store/bs/reducer.js":
+/*!*****************************!*\
+  !*** ./store/bs/reducer.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./types */ "./store/bs/types.js");
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+
+var initialState = {
+  loading: false,
+  error: '',
+  message: '',
+  bs: null,
+  meals: [],
+  drinks: [],
+  offers: []
+};
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _types__WEBPACK_IMPORTED_MODULE_1__["BS_LOADING"]:
+      return _objectSpread({}, state, {
+        error: '',
+        message: '',
+        loading: true
+      });
+
+    case _types__WEBPACK_IMPORTED_MODULE_1__["BS_ERROR"]:
+      return _objectSpread({}, state, {
+        loading: false,
+        error: action.payload
+      });
+
+    case _types__WEBPACK_IMPORTED_MODULE_1__["LOAD_BS"]:
+      return _objectSpread({}, state, {
+        loading: false,
+        bs: action.payload
+      });
+
+    case _types__WEBPACK_IMPORTED_MODULE_1__["BS_MESSAGE"]:
+      return _objectSpread({}, state, {
+        loading: false,
+        message: action.payload
+      });
+
+    case _types__WEBPACK_IMPORTED_MODULE_1__["REQUEST_ORDER"]:
+      return _objectSpread({}, state, {
+        loading: false,
+        message: action.payload
+      });
+
+    case _types__WEBPACK_IMPORTED_MODULE_1__["LOAD_MEALS"]:
+      return _objectSpread({}, state, {
+        meals: action.payload
+      });
+
+    case _types__WEBPACK_IMPORTED_MODULE_1__["LOAD_DRINKS"]:
+      return _objectSpread({}, state, {
+        drinks: action.payload
+      });
+
+    case _types__WEBPACK_IMPORTED_MODULE_1__["LOAD_OFFERS"]:
+      return _objectSpread({}, state, {
+        offers: action.payload,
+        loading: false
+      });
+
+    default:
+      return _objectSpread({}, state);
+  }
+});
+
+/***/ }),
+
+/***/ "./store/bs/types.js":
+/*!***************************!*\
+  !*** ./store/bs/types.js ***!
+  \***************************/
+/*! exports provided: BS_LOADING, BS_ERROR, BS_MESSAGE, LOAD_BS, REQUEST_ORDER, LOAD_MEALS, LOAD_OFFERS, LOAD_DRINKS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BS_LOADING", function() { return BS_LOADING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BS_ERROR", function() { return BS_ERROR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BS_MESSAGE", function() { return BS_MESSAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOAD_BS", function() { return LOAD_BS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_ORDER", function() { return REQUEST_ORDER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOAD_MEALS", function() { return LOAD_MEALS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOAD_OFFERS", function() { return LOAD_OFFERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOAD_DRINKS", function() { return LOAD_DRINKS; });
+var BS_LOADING = "BS_LOADING";
+var BS_ERROR = "BS_ERROR";
+var BS_MESSAGE = "BS_MESSAGE";
+var LOAD_BS = "LOAD_BS";
+var REQUEST_ORDER = "REQUEST_ORDER";
+var LOAD_MEALS = "LOAD_MEALS";
+var LOAD_OFFERS = "LOAD_OFFERS";
+var LOAD_DRINKS = "LOAD_DRINKS";
+
+/***/ }),
+
 /***/ "./store/covid19/actions.js":
 /*!**********************************!*\
   !*** ./store/covid19/actions.js ***!
@@ -12605,7 +12986,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services */ "./store/services/index.js");
 /* harmony import */ var _influencers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./influencers */ "./store/influencers/index.js");
 /* harmony import */ var _covid19__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./covid19 */ "./store/covid19/index.js");
+/* harmony import */ var _bs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./bs */ "./store/bs/index.js");
  //custom reducers
+
 
 
 
@@ -12623,7 +13006,8 @@ __webpack_require__.r(__webpack_exports__);
   quickview: _quickview__WEBPACK_IMPORTED_MODULE_5__["default"],
   services: _services__WEBPACK_IMPORTED_MODULE_6__["default"],
   influencers: _influencers__WEBPACK_IMPORTED_MODULE_7__["default"],
-  covid19: _covid19__WEBPACK_IMPORTED_MODULE_8__["default"]
+  covid19: _covid19__WEBPACK_IMPORTED_MODULE_8__["default"],
+  bs: _bs__WEBPACK_IMPORTED_MODULE_9__["default"]
 }));
 
 /***/ }),

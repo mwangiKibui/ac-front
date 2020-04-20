@@ -18,6 +18,7 @@
 @import './components/cards/service.scss';
 @import './components/cards/influencer.scss';
 @import './components/cards/seller.scss';
+@import './components/cards/bs.scss';
 
 //blocks
 //@block home
@@ -35,4 +36,5 @@
 @import './components/shared/block-header';
 
 //sections
-@import './components/sections/covid19.scss'
+@import './components/sections/covid19.scss';
+@import './components/sections/bs.scss';

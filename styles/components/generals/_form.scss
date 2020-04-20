@@ -64,4 +64,57 @@
         color: #fff !important;
         background:$background !important;
     }
+};
+
+.form-group {
+    margin-bottom: 1.5rem;
+};
+.form-control{
+    background: $background !important;
+    color: #fff !important;
+    font-family: $font;
+    font-size: 15px;
+    select{
+        background:$background;
+        color: #fff;
+        font-family: $card-font;
+    };
+    option{
+        background:$background;
+        color: #fff;
+        font-family: $card-font;
+    }
+    option::before{
+        background:$background;
+        color: #fff;
+        font-family: $card-font;
+    }
+};
+textarea::placeholder{
+    color: #fff;
+    font-family: $font;
+    font-size: 15px;
+};
+textarea{
+    background: $background;
+    color: #fff;
+    font-family: $font;
+    font-size: 15px;
+    &:focus{
+        background: $background;
+        color: #fff;
+    };
+    &:active{
+        background: $background;
+        color: #fff;
+    };
+}
+input[type="text"]::placeholder{
+    font-family: $font;
+    font-size: 15px;
+}
+label{
+    color: #fff;
+    font-family: $font;
+    font-size: 16px;
 }
