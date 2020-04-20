@@ -1,0 +1,77 @@
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');
+
+
+$font:'Baloo Tamma 2', cursive;
+$card-font:$font;
+$heading_font:'Source Sans Pro', sans-serif;
+$background:#000F26;
+$card-bg:rgb(19,38,57);
+$link-color:gray;
+//colors
+$light-divider-color:#ebebeb;
+
+//Footer
+$footer-bg:                          #000F26                !default;
+$footer-border-top:                  1px solid $light-divider-color !default;
+$footer-copyright-border:            1px solid $light-divider-color !default;
+// social links
+$footer-social-link-icon-color:      #fff                           !default;
+$footer-social-link-facebook-color:  #3c5a99                        !default;
+$footer-social-link-twitter-color:   #00a2e8                        !default;
+$footer-social-link-youtube-color:   #e52e2e                        !default;
+$footer-social-link-instagram-color: #815dc7                        !default;
+$footer-social-link-rss-color:       #ffc338                        !default;
+
+// ----------------------------------------
+// -- direction
+// ----------------------------------------
+$direction:                 ltr                                      !default; // or rtl
+$both-directions:           true                                     !default;
+
+$inline-start:              if($direction == ltr, left, right)       !default;
+$inline-end:                if($direction == ltr, right, left)       !default;
+$transform-direction:       if($direction == ltr, 1, -1)             !default;
+
+$margin-inline-start:       margin- + $inline-start                  !default;
+$margin-inline-end:         margin- + $inline-end                    !default;
+$padding-inline-start:      padding- + $inline-start                 !default;
+$padding-inline-end:        padding- + $inline-end                   !default;
+$inset-inline-start:        $inline-start                            !default;
+$inset-inline-end:          $inline-end                              !default;
+$border-inline-start:       border- + $inline-start                  !default;
+$border-inline-end:         border- + $inline-end                    !default;
+$border-start-start-radius: border-top- + $inline-start + -radius    !default;
+$border-start-end-radius:   border-top- + $inline-end + -radius      !default;
+$border-end-start-radius:   border-bottom- + $inline-start + -radius !default;
+$border-end-end-radius:     border-bottom- + $inline-end + -radius   !default;
+
+ // breakpoints
+ $breakpoints: (
+    xs-start: 0px,
+    xs-end:   575px,
+    sm-start: 576px,
+    sm-end:   767px,
+    md-start: 768px,
+    md-end:   991px,
+    lg-start: 992px,
+    lg-end:   1199px,
+    xl-start: 1200px
+ );
+
+//links
+$link-color:                     #1a66ff               !default;
+$link-hover-color:               #1a66ff               !default;
+
+ // ----------------------------------------
+   // -- .block-header
+   // ----------------------------------------
+   $block-header-divider-size:          2px                                       !default;
+
+// ----------------------------------------
+   // -- preloader
+   // ----------------------------------------
+   $preloader-thickness: 2px            !default;
+   $preloader-color-1:   #009933 !default;
+   $preloader-color-2:   #fff !default;

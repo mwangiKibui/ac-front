@@ -1,0 +1,130 @@
+@import '../variables.scss';
+@import '../mixins/preloader.scss';
+
+.product_card-root{
+    background:$background !important;
+    color: #fff;
+    margin-top:2px;
+};
+
+.product_card-avatar{
+    background: red !important;
+};
+
+.product_card-media{
+    height: 0;
+    padding-top: 56.25%;
+};
+
+.product_card{
+    width:100%;
+    margin:10px 10px;
+};
+.product_card-name{
+    color: #fff;
+    font-family: $card-font;
+    font-size: 18px;
+}
+
+.product_card-img{
+    width:100%;
+    height:170px;
+    color: #fff;
+    font-family: $font;
+};
+.product_card--link{
+    color:#000;
+    font-size:17px;
+    font-family: $font;
+    font-weight: lighter;
+    margin:5px 0px;
+};
+.product_card-price{
+    color:gray;
+    font-family: $card_font;
+    font-size:15px;
+};
+.product_card-description{
+    font-family: $card_font;
+    font-size: 15px;
+    color: #fff;
+}
+.product_card--seller{
+    color:gray;
+    font-family: $font;
+    font-size:13px;
+};
+.product_card-actions{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+};
+.product_card-quick-view{
+    cursor: pointer;
+    fill:#fff;
+    margin:2px 0px;
+}
+.product_card--links{
+    display: flex;
+    justify-content: space-between;
+};
+.product_card_icon--link{
+    margin-top:5px;
+    color: rgba(0,0,0,.7);
+    cursor: pointer;
+    
+};
+.product_card-seller{
+    font-size: 16px;
+    font-family: $font;
+    color: $link-color;
+}
+//the icons
+.prod_card-icons{
+    cursor: pointer;
+};
+//for slideshow
+.product_slideshow_container{
+    width:100%;
+    height:354px;
+    position:relative;
+    margin:14px 0px;
+};
+.product_image{
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    position:absolute;
+};
+
+//product card styles also applies to the hostels showing in shared/product.js
+
+.product-card__quickview{
+    fill:#fff ;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    cursor: pointer;
+    margin-top:0px;
+    border:none;
+}
+.product-card__quickview--preload {
+    &:after {
+        @include preloader(100px);
+    }
+
+    color: transparent;
+}
+.product_price{
+    color: #fff;
+    font-family: $card-font;
+};
+.product_caretaker{
+    color: #fff;
+    font-family: $card-font;
+};
+.product-card__icon{
+    color: #fff;
+}

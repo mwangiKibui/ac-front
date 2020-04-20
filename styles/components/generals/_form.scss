@@ -1,0 +1,67 @@
+@import '../variables.scss';
+
+.material_ui-formControl{
+    margin:10px;
+    width: 100%;
+    background: $background !important;
+    color: #fff;
+};
+
+.material_ui-menu{
+    background: $background !important;
+    color: #fff;
+};
+
+//material ui forms
+.MuiFormControl-root{
+    width: 100%;
+    height: 100%;
+    margin:0px !important;
+    overflow-x: hidden;
+    border: none;
+    padding:5px !important;
+    color: #fff !important;
+};
+.MuiInputBase-input ::placeholder{
+    color: #fff !important;
+    font-family: $card-font !important;
+};
+.MuiInputBase-input{
+    color: #fff;
+    font-family: $card-font;
+};
+.MuiSelect-select.MuiSelect-select{
+    color: #fff !important;
+    font-family:$card-font !important;
+};
+.MuiSelect-selectMenu{
+    color:#fff;
+    font-family: $card-font;
+}
+.MuiInputLabel-formControl{
+    color: #fff !important;
+    font-family: $card-font !important;
+
+};
+
+.MuiSelect-icon{
+    color:#fff !important;  
+};
+.MuiInput-underline {
+    border-bottom: 1px solid #fff !important;
+}
+
+.MuiListItem-root.Mui-selected{
+    background:$background !important;
+    color: #fff !important;
+};
+
+.MuiButtonBase-root{
+    color: #fff !important;
+    font-family: $font;
+    font-size: 14px !important;
+    &:hover{
+        color: #fff !important;
+        background:$background !important;
+    }
+}

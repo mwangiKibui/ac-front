@@ -1,0 +1,78 @@
+//shall be transited later
+// @import '../variables';
+// @import '../functions';
+// @import '../mixins/card';
+// @import '../mixins/direction';
+
+@import '../variables.scss';
+
+.navbar{
+    color:rgba(0,0,0,1);
+    height:80px;
+    padding:20px;
+    font-family:$font;
+    z-index:100;
+    border-radius:0px;
+    border:none;
+}
+.navbar-brand{
+    position:absolute;
+    font-family: $font;
+    display: inline-flex;
+};
+.navbar-toggler{
+    position:absolute;
+    right:20px;
+}
+.navbar_logo{
+    width:50px;
+    height: 50px;
+    margin-right:10px;
+    padding-bottom: 10px;
+};
+.navbar_text{
+    color:rgba(0,0,0,1);
+    font-size:14px;
+    font-family: $font;
+    display: flex;
+}
+.nav-link{
+    color:rgba(0,0,0,1);
+    transition:1s ease-in-out;
+    font-size: 18px;
+    font-family: $font;
+    &:hover{
+        color:coral;
+        transition:1s ease-in-out;
+    }
+};
+.nav_link-active{
+    transition:1s ease-in-out;
+    border-bottom: 1px solid coral;
+};
+.navbar-toggler-icon span{
+    width:100%;
+    height: 1px;
+    margin:0px;
+    background:rgba(0,0,0,1);
+}
+// @media(max-width:breakpoint(md-end)){
+// //md-end to mean the end of the laptop/desktop display
+// .navbar-collapse{
+//     background:$background;
+//     padding:20px;
+//     margin-top:110px;
+//     z-index:120;
+//     padding-top:10px;
+//     width:80%;
+// };
+// .nav-link{
+//     color:#fff;
+//     font-family: $card-font;
+//     transition:1s ease-in-out;
+//     &:hover{
+//         color:coral;
+//         transition:1s ease-in-out;
+//     }
+// };
+// }

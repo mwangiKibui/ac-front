@@ -3,36 +3,15 @@ import React,{useState} from 'react';
 import Link from 'next/link'
 //third-party
 import {IoMdShare} from 'react-icons/io';
-import {Card,CardHeader,CardMedia,CardContent,Avatar,CardActions,makeStyles} from '@material-ui/core';
-import {red} from '@material-ui/core/colors';
+import {Card,CardHeader,CardMedia,CardContent,Avatar,CardActions} from '@material-ui/core';
 //the styles
-import '../../styles/styles.scss';
+import '../../styles/style.scss';
 //components
 import ModalShare from './ModalShare';
 
-const useStyles = makeStyles({
-    root:{
-        background:'rgb(19,38,57)',
-        color:'#fff',
-        marginTop:'2px',
-        marginBottom:'5px'
-    },
-    media:{
-        height:0,
-        paddingTop:'56.25%'
-    },
-    avatar:{
-        backgroundColor:red[500]
-    },
-    img:{
-        width:'100%',
-        height:'100%'
-    }
-});
-
 const HostelCard = ({data}) => {
 
-    const classes = useStyles();
+    
     const [isOpen,setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
     let title = `${data['name']} hostel in allcomrades platform`;
@@ -62,40 +41,25 @@ const HostelCard = ({data}) => {
                 </h5>
              }
              />
+             
             <CardMedia  title={data.name}>
-                <img src={data.profiles[0]} alt="" className="hostel_card-img" />
+                <img src={data.profiles[0]} alt="Loading..." className="hostel_card-img" />
             </CardMedia>
+
             <CardContent>
             <div className="hostel_card-actions">
-            <p className="hostel_card-description">{data.type}.</p>
-            
+            <p className="hostel_card-description">{data.type}</p>
             <IoMdShare className="hostel_card_icon--link" onClick={toggle}/>
             <ModalShare title={title} toggle={toggle} isOpen={isOpen} message={message} link={link} />
             </div>
             
             </CardContent>
             <CardActions>
-                <button className="btn btn-success">
-                        view more
-                </button>
+                <Link href={`/hostels/${data['slug']}`}>
+                    <a className="btn btn-outline-success">view more</a>
+                </Link>
             </CardActions>
         </Card>
-        <style jsx>{`
-        .root{
-            background:'rgb(19,38,57)' !important,
-            color:'#fff',
-            marginTop:'2px',
-            marginBottom:'5px'
-        };
-        .media{
-            height:0;
-            paddingTop:'56.25%';
-        };
-        .avatar{
-            backgroundColor:${red[500]};
-        };
-        `}
-        </style>
         </>
     )
 };

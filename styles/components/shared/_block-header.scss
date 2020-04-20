@@ -1,0 +1,145 @@
+/*
+// .block-header
+*/
+@import '../variables';
+@import '../functions';
+@import '../mixins/direction';
+
+
+
+.block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top:10px;
+    margin-bottom: 18px;
+
+}
+.block-header__title {
+    margin-bottom: 0;
+    font-size: 20px;
+    font-family:$heading_font;
+    color: #fff;
+    font-weight:bolder;
+};
+
+.block-header__divider {
+    flex-grow: 1;
+    height: $block-header-divider-size;
+};
+
+.block-header__arrows{
+    position:relative;
+    width:100%;
+    height:auto;
+}
+.block-header__arrows-list {
+    display: flex;
+    justify-content: space-between;
+    position:relative;
+}
+.block-header__arrow {
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    fill: #fff;
+    border-radius: 50%;
+    background: #009933;
+    transition: all .15s;
+    &:focus {
+        outline: none;
+    }
+
+    &:focus,
+    &:hover {
+        fill: #fff;
+    }
+
+    &:active {
+        transition-duration: 0s;
+        fill: #fff;
+    }
+
+    & + & {
+        @include direction {
+            #{$margin-inline-start}: 3px;
+        }
+    }
+
+    svg {
+        @include direction {
+            transform: scaleX(1 * $transform-direction);
+        }
+    }
+};
+
+.block-header__arrow--left {
+    left:-12px;
+    top:100%;
+    transform:translateY(100%);
+    z-index:10;
+    position:absolute;
+}
+.block-header__arrow--right{
+    right:-12px;
+    top:100%;
+    transform:translateY(100%);
+    z-index:10;
+    position:absolute;
+}
+
+
+.block-header__title + .block-header__divider {
+    @include direction {
+        #{$margin-inline-start}: 16px;
+    }
+}
+.block-header__divider + .block-header__groups-list {
+    @include direction {
+        #{$margin-inline-start}: 12px;
+    }
+}
+.block-header__groups-list + .block-header__arrows-list {
+    @include direction {
+        #{$margin-inline-start}: 10px;
+    }
+}
+.block-header__divider + .block-header__arrows-list {
+    @include direction {
+        #{$margin-inline-start}: 16px;
+    }
+}
+
+
+
+@media (max-width: breakpoint(sm-end)) {
+    .block-header {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .block-header__groups-list {
+        padding: 8px 0;
+        margin-top: 8px;
+        margin-bottom: -8px;
+        order: 100;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .block-header__divider + .block-header__groups-list {
+        @include direction {
+            #{$margin-inline-start}: auto;
+            #{$margin-inline-end}: auto;
+        }
+    }
+    .block-header__divider + .block-header__groups-list + .block-header__arrows-list {
+        @include direction {
+            #{$margin-inline-start}: 16px;
+        }
+    }
+};

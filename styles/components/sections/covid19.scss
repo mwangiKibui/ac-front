@@ -1,0 +1,80 @@
+@import '../variables';
+
+.covid19{
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-top:90px;
+}
+
+.covid19Card{
+    width: 100%;
+    background:$background;
+    margin-bottom: 10px;
+};
+
+.covid19Card--infected{
+    border-bottom: 10px solid #ffa500;
+    border-top:1px solid #ffa500;
+    border-right:1px solid #ffa500;
+    border-left: 1px solid #ffa500;
+};
+
+.covid19Card--recovered{
+    border-bottom: 10px solid #008000;
+    border-top:1px solid #008000;
+    border-right:1px solid #008000;
+    border-left: 1px solid #008000;
+};
+
+.covid19Card--deaths{
+    border-top: 1px solid rgba(255,0,0,1);
+    border-right: 1px solid rgba(255,0,0,1);
+    border-left: 1px solid rgba(255,0,0,1);
+    border-bottom: 10px solid rgba(255,0,0,1);
+};
+
+.covid19_heading{
+    color:#fff;
+    font-family: $card-font !important;
+    font-size: 20px !important;
+    font-weight: bolder !important;
+};
+
+.covid19_count-up{
+    color: #fff;
+    font-family: $card-font !important;
+    font-size: 18px !important;
+    font-weight: bolder !important;
+};
+
+.covid19_date{
+    color: gray;
+    font-family: $card-font !important;
+    font-size: 17px !important;
+};
+
+.covid19_text{
+    color: #fff;
+    font-family: $card-font !important;
+    font-size: 16px !important;
+};
+
+//the form
+
+option{
+    color:#fff;
+    font-family: $card-font;
+    font-size: 17px !important;
+};
+
+//the sections
+.cards{
+    margin:30px 0px;
+};
+.selectCountry{
+    margin:30px 0px;
+};
+.chat{
+    margin:30px 0px;
+}

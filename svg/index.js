@@ -1,0 +1,1 @@
+export {ReactComponent as Quickview16Svg } from './quickview-16.svg';

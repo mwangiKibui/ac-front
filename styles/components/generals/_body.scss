@@ -1,0 +1,18 @@
+@import '../variables.scss';
+
+.site{
+    background: $background;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+};
+.site__header {
+    flex-shrink: 0;
+}
+.site__body {
+    flex-grow: 1;
+}
+.site__footer {
+    flex-shrink: 0;
+}

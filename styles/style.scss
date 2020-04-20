@@ -1,0 +1,38 @@
+
+//components
+@import '../node_modules/bootstrap-css-only/css/bootstrap.min.css';
+// @import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+//header
+@import './components/header/header.scss';
+
+//the footer
+@import './components/footer/footer-contacts';
+@import './components/footer/footer-links';
+@import './components/footer/footer-newsletter';
+@import './components/footer/site-footer';
+
+//card
+//@hostel card
+@import './components/cards/hostel.scss';
+@import './components/cards/product.scss';
+@import './components/cards/service.scss';
+@import './components/cards/influencer.scss';
+@import './components/cards/seller.scss';
+
+//blocks
+//@block home
+@import './components/blocks/block-home';
+@import './components/blocks/general';
+
+
+//generals
+@import './components/generals/btn';
+@import './components/generals/body';
+@import './components/generals/advert';
+@import './components/generals/form';
+
+//shared
+@import './components/shared/block-header';
+
+//sections
+@import './components/sections/covid19.scss'
