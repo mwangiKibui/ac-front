@@ -6,8 +6,7 @@ import Covid19 from '../../components/covid19';
 //shared-components
 import Layout from '../../components/Layout';
 import Meta from '../../partials/seo-meta';
-//image
-import img from '../../public/static/images/corona_cover.jpg';
+
 
 const Index = (props) =>  {
     
@@ -17,7 +16,7 @@ const Index = (props) =>  {
         title="Corona Virus Outbreak. | allcomrades cares"
         description="Get realtime data of infected,recovered and death cases resulting from covid19 from all over the world"
         url="https://allcomrades.co.ke/covid19"
-        image={img}
+        image="https://karu-api.s3.amazonaws.com/hostels/1579355648016.jpg"
         />
         <section className="covid19">
             <div className="container">
