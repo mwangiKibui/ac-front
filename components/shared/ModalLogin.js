@@ -144,7 +144,10 @@ class  Login extends Component  {
                                     </div>
                                 </form>
                                 <div className="form_links">
-                                    <p className="text-left"><Link to={`/account/user/recover_password`}>forgot password</Link></p>
+                                    <p className="text-left">
+                                    <Link href={`/account/user/recover_password`}>
+                                        <a>forgot password</a>
+                                    </Link></p>
                                     <span className="text-right"style={{cursor:'pointer'}} onClick={() => this.props.setLogin(false)}>create an account</span>
                                 </div>
                             </div>

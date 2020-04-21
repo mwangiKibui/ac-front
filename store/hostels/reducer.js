@@ -1,43 +1,57 @@
-import {HOSTELS_LOADING,HOSTELS_FETCH,HOSTEL_LOAD,HOSTEL_ERROR} from './types';
+import {HOSTELS_FETCH,HOSTEL_FETCH,HOSTEL_LOADING,LOAD_REVIEWS,ADD_REVIEW,DELETE_REVIEW,RESET_HOSTEL_LOADING} from './types';
 
 const initialState = {
-    hostels:[],
     loading:false,
+    hostels:[],
     hostel:{},
-    error:''
+    reviews:[]
 };
 
-export default (state=initialState,action ) => {
+export default  (state=initialState,action) => {
     switch(action.type){
-
-        case HOSTELS_LOADING:
+        case HOSTEL_LOADING:
             return {
                 ...state,
                 loading:true
             }
-
+        case RESET_HOSTEL_LOADING:
+            return {
+                ...state,
+                loading:false
+            }
         case HOSTELS_FETCH:
             return {
                 ...state,
-                hostels:action.payload,
-                loading:false                
+                loading:false,
+                hostels:action.payload
             }
-
-        case HOSTEL_LOAD:
+        case HOSTEL_FETCH:
             return {
                 ...state,
-                hostel:action.payload,
-                loading:false
-            }
-
-        case HOSTEL_ERROR:
+                loading:false,
+                hostel:action.payload
+            };
+        case LOAD_REVIEWS:
             return {
                 ...state,
-                error:action.payload,
+                reviews:action.payload,
                 loading:false
             }
-            
+        case ADD_REVIEW:
+            return {
+                ...state,
+                reviews:[...state.reviews,action.payload],
+                loading:false
+            }
+        case DELETE_REVIEW:
+            return {
+                ...state,
+                reviews:state.reviews.filter(review => review._id !== action.payload),
+                loading:false
+            }
         default:
-            return {...state}
+            return {
+                ...state
+            }
     }
-}
+};

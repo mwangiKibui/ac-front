@@ -1,0 +1,19 @@
+@import '../variables.scss';
+
+.error_section{
+    width:100%;
+    text-align: center;
+    padding:20px;
+    margin: 10px auto;
+};
+.error_section_icon{
+    width:100%;
+    font-size:30px;
+    margin:10px auto;
+    color: #fff;
+};
+.error_section_msg{
+    font-family:$card-font;
+    font-size:18px;
+    color: #fff;
+}

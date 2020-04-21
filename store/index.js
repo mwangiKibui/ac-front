@@ -10,6 +10,9 @@ import servicesReducer from './services';
 import influencersReducer from './influencers';
 import covid19Reducer from './covid19';
 import bsReducer from './bs';
+import localeReducer from './locale';
+import sidebarReducer from './sidebar';
+import categoriesReducer from './categories';
 
 export default combineReducers({
     hostels:hostelReducer,
@@ -20,5 +23,8 @@ export default combineReducers({
     services:servicesReducer,
     influencers:influencersReducer,
     covid19:covid19Reducer,
-    bs:bsReducer
+    bs:bsReducer,
+    locale:localeReducer,
+    mp_sidebar:sidebarReducer,
+    categories:categoriesReducer
 });

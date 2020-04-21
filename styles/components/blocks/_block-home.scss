@@ -118,41 +118,6 @@ $heading_font:$font;
     font-family: $card-font;
     padding: 10px;
 }
-.slick-list{
-
-};
-
-.slick-dots{
-    list-style-type: none;
-    width:100%;
-    bottom: 0px;
-    text-align: center;
-    margin-top:3px;
-};
-
-.slick-dots li{
-    display: inline-flex;
-    justify-content: space-between;
-    margin-right:5px;
-};
-
-.slick-dots li button{
-    width:50px;
-    height:2px;
-    overflow: hidden;
-    border:none;
-    color:gray;
-    background:gray;
-};
-
-.slick-dots .slick-active button{
-    width:50px;
-    height:2px;
-    overflow: hidden;
-    color:#009999;
-    background:#009999;
-    border:none;
-};
 
 @media(max-width:breakpoint(md-end)){
 

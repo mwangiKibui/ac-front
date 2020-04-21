@@ -666,6 +666,124 @@ const LOAD_DRINKS = "LOAD_DRINKS";
 
 /***/ }),
 
+/***/ "./store/categories/actions.js":
+/*!*************************************!*\
+  !*** ./store/categories/actions.js ***!
+  \*************************************/
+/*! exports provided: fetchCategories */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchCategories", function() { return fetchCategories; });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./types */ "./store/categories/types.js");
+
+
+const URI = `https://karuapi.herokuapp.com/api/`;
+
+const load_categories = data => {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_1__["CATEGORIES_FETCH"],
+    payload: data
+  };
+};
+
+const setLoading = () => {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_1__["CATEGORIES_LOADING"]
+  };
+};
+
+const fetchCategories = () => {
+  return async dispatch => {
+    dispatch(setLoading());
+    await axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${URI}/prodCategories/fetchProdCategories`).then(result => {
+      let data = result.data.message;
+      return dispatch(load_categories(data));
+    }).catch(console.log);
+  };
+};
+
+/***/ }),
+
+/***/ "./store/categories/index.js":
+/*!***********************************!*\
+  !*** ./store/categories/index.js ***!
+  \***********************************/
+/*! exports provided: fetchCategories, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reducer */ "./store/categories/reducer.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions */ "./store/categories/actions.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fetchCategories", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["fetchCategories"]; });
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (_reducer__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
+/***/ "./store/categories/reducer.js":
+/*!*************************************!*\
+  !*** ./store/categories/reducer.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./store/categories/types.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+const initialState = {
+  loading: false,
+  categories: []
+};
+/* harmony default export */ __webpack_exports__["default"] = ((state = initialState, action) => {
+  switch (action.type) {
+    case _types__WEBPACK_IMPORTED_MODULE_0__["CATEGORIES_LOADING"]:
+      return _objectSpread({}, state, {
+        loading: true
+      });
+
+    case _types__WEBPACK_IMPORTED_MODULE_0__["CATEGORIES_FETCH"]:
+      return _objectSpread({}, state, {
+        loading: false,
+        categories: action.payload
+      });
+
+    default:
+      return _objectSpread({}, state);
+  }
+});
+
+/***/ }),
+
+/***/ "./store/categories/types.js":
+/*!***********************************!*\
+  !*** ./store/categories/types.js ***!
+  \***********************************/
+/*! exports provided: CATEGORIES_FETCH, CATEGORIES_LOADING */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CATEGORIES_FETCH", function() { return CATEGORIES_FETCH; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CATEGORIES_LOADING", function() { return CATEGORIES_LOADING; });
+const CATEGORIES_FETCH = "CATEGORIES_FETCH";
+const CATEGORIES_LOADING = "CATEGORIES_LOADING";
+
+/***/ }),
+
 /***/ "./store/covid19/actions.js":
 /*!**********************************!*\
   !*** ./store/covid19/actions.js ***!
@@ -886,43 +1004,70 @@ const LOADING = "LOADING";
 /*!**********************************!*\
   !*** ./store/hostels/actions.js ***!
   \**********************************/
-/*! exports provided: fetchHostels, fetchHostel */
+/*! exports provided: fetchHostels, fetchSpecificHostel, loadReviews, pushHostelReview, pullHostelReview, addHostelView */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchHostels", function() { return fetchHostels; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchHostel", function() { return fetchHostel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpecificHostel", function() { return fetchSpecificHostel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadReviews", function() { return loadReviews; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pushHostelReview", function() { return pushHostelReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pullHostelReview", function() { return pullHostelReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addHostelView", function() { return addHostelView; });
 /* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./store/hostels/types.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "axios");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 
 
-const URL = `https://karuapi.herokuapp.com/api`;
+const URL = `https://karuapi.herokuapp.com/api/`;
 
-const setLoading = () => {
-  return {
-    type: _types__WEBPACK_IMPORTED_MODULE_0__["HOSTELS_LOADING"]
-  };
-};
-
-const setHostels = data => {
+const load_hostels = data => {
   return {
     type: _types__WEBPACK_IMPORTED_MODULE_0__["HOSTELS_FETCH"],
     payload: data
   };
 };
 
-const setHostel = data => {
+const load_hostel = data => {
   return {
-    type: _types__WEBPACK_IMPORTED_MODULE_0__["HOSTEL_LOAD"],
+    type: _types__WEBPACK_IMPORTED_MODULE_0__["HOSTEL_FETCH"],
     payload: data
   };
 };
 
-const setError = data => {
+const setLoading = () => {
   return {
-    type: _types__WEBPACK_IMPORTED_MODULE_0__["HOSTEL_ERROR"],
+    type: _types__WEBPACK_IMPORTED_MODULE_0__["HOSTEL_LOADING"]
+  };
+};
+
+const resetLoading = () => {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_0__["RESET_HOSTEL_LOADING"]
+  };
+}; //setting the reviews
+
+
+const setReviews = data => {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_0__["LOAD_REVIEWS"],
+    payload: data
+  };
+}; //adding a single review
+
+
+const addReview = data => {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_0__["ADD_REVIEW"],
+    payload: data
+  };
+}; //deleting review
+
+
+const deleteReview = data => {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_0__["DELETE_REVIEW"],
     payload: data
   };
 };
@@ -930,19 +1075,71 @@ const setError = data => {
 const fetchHostels = () => {
   return async dispatch => {
     dispatch(setLoading());
-    await axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(`${URL}/hostels/fetchHostels`).then(response => {
-      return dispatch(setHostels(response.data.message));
+    await axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(`${URL}/hostels/fetchHostels`).then(result => {
+      return dispatch(load_hostels(result.data.message));
     }).catch(console.log);
   };
 };
-const fetchHostel = slug => {
+const fetchSpecificHostel = slug => {
   return async dispatch => {
     dispatch(setLoading());
-    await axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(`${URL}/hostels/${slug}`).then(response => {
+    await axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(`${URL}/hostels/${slug}`).then(result => {
+      return dispatch(load_hostel(result.data.message));
+    }).catch(console.log);
+  };
+}; //loading the reviews
+
+const loadReviews = data => {
+  return async dispatch => {
+    dispatch(setLoading());
+    return dispatch(setReviews(data));
+  };
+}; //adding a review
+
+const pushHostelReview = (data, slug, added_review) => {
+  return async dispatch => {
+    dispatch(setLoading());
+    await axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(`${URL}/hostels/addReview/${slug}`, data, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(response => {
+      dispatch(load_hostel(response.data.message));
+      return dispatch(addReview(added_review));
+    }).catch(console.log);
+  };
+}; //removing a review
+
+const pullHostelReview = (slug, review) => {
+  let data = {
+    review
+  };
+  return async dispatch => {
+    dispatch(setLoading());
+    await axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(`${URL}/hostels/deleteReview/${slug}`, data, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(response => {
+      dispatch(load_hostel(response.data.message));
+      return dispatch(deleteReview(review));
+    }).catch(console.log);
+  };
+}; //adding views
+
+const addHostelView = slug => {
+  return async dispatch => {
+    dispatch(setLoading());
+    await axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(`${URL}/hostels/addViews`, {
+      slug
+    }, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(response => {
       let success = response.data.success;
-      if (!success) return dispatch(setError(response.data.message));
-      return dispatch(setHostel(response.data.message));
-    });
+      if (success) return dispatch(resetLoading());
+    }).catch(console.log);
   };
 };
 
@@ -952,7 +1149,7 @@ const fetchHostel = slug => {
 /*!********************************!*\
   !*** ./store/hostels/index.js ***!
   \********************************/
-/*! exports provided: fetchHostels, fetchHostel, default */
+/*! exports provided: fetchHostels, fetchSpecificHostel, loadReviews, pushHostelReview, pullHostelReview, addHostelView, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -961,7 +1158,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions */ "./store/hostels/actions.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fetchHostels", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["fetchHostels"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fetchHostel", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["fetchHostel"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fetchSpecificHostel", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["fetchSpecificHostel"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "loadReviews", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["loadReviews"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "pushHostelReview", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["pushHostelReview"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "pullHostelReview", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["pullHostelReview"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "addHostelView", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["addHostelView"]; });
 
 
 
@@ -987,33 +1192,50 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 const initialState = {
-  hostels: [],
   loading: false,
+  hostels: [],
   hostel: {},
-  error: ''
+  reviews: []
 };
 /* harmony default export */ __webpack_exports__["default"] = ((state = initialState, action) => {
   switch (action.type) {
-    case _types__WEBPACK_IMPORTED_MODULE_0__["HOSTELS_LOADING"]:
+    case _types__WEBPACK_IMPORTED_MODULE_0__["HOSTEL_LOADING"]:
       return _objectSpread({}, state, {
         loading: true
       });
 
+    case _types__WEBPACK_IMPORTED_MODULE_0__["RESET_HOSTEL_LOADING"]:
+      return _objectSpread({}, state, {
+        loading: false
+      });
+
     case _types__WEBPACK_IMPORTED_MODULE_0__["HOSTELS_FETCH"]:
       return _objectSpread({}, state, {
-        hostels: action.payload,
+        loading: false,
+        hostels: action.payload
+      });
+
+    case _types__WEBPACK_IMPORTED_MODULE_0__["HOSTEL_FETCH"]:
+      return _objectSpread({}, state, {
+        loading: false,
+        hostel: action.payload
+      });
+
+    case _types__WEBPACK_IMPORTED_MODULE_0__["LOAD_REVIEWS"]:
+      return _objectSpread({}, state, {
+        reviews: action.payload,
         loading: false
       });
 
-    case _types__WEBPACK_IMPORTED_MODULE_0__["HOSTEL_LOAD"]:
+    case _types__WEBPACK_IMPORTED_MODULE_0__["ADD_REVIEW"]:
       return _objectSpread({}, state, {
-        hostel: action.payload,
+        reviews: [...state.reviews, action.payload],
         loading: false
       });
 
-    case _types__WEBPACK_IMPORTED_MODULE_0__["HOSTEL_ERROR"]:
+    case _types__WEBPACK_IMPORTED_MODULE_0__["DELETE_REVIEW"]:
       return _objectSpread({}, state, {
-        error: action.payload,
+        reviews: state.reviews.filter(review => review._id !== action.payload),
         loading: false
       });
 
@@ -1028,19 +1250,25 @@ const initialState = {
 /*!********************************!*\
   !*** ./store/hostels/types.js ***!
   \********************************/
-/*! exports provided: HOSTELS_LOADING, HOSTELS_FETCH, HOSTEL_LOAD, HOSTEL_ERROR */
+/*! exports provided: HOSTELS_FETCH, HOSTEL_FETCH, HOSTEL_LOADING, LOAD_REVIEWS, ADD_REVIEW, DELETE_REVIEW, RESET_HOSTEL_LOADING */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HOSTELS_LOADING", function() { return HOSTELS_LOADING; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HOSTELS_FETCH", function() { return HOSTELS_FETCH; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HOSTEL_LOAD", function() { return HOSTEL_LOAD; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HOSTEL_ERROR", function() { return HOSTEL_ERROR; });
-const HOSTELS_LOADING = "HOSTELS_LOADING";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HOSTEL_FETCH", function() { return HOSTEL_FETCH; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HOSTEL_LOADING", function() { return HOSTEL_LOADING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOAD_REVIEWS", function() { return LOAD_REVIEWS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_REVIEW", function() { return ADD_REVIEW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_REVIEW", function() { return DELETE_REVIEW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET_HOSTEL_LOADING", function() { return RESET_HOSTEL_LOADING; });
 const HOSTELS_FETCH = "HOSTELS_FETCH";
-const HOSTEL_LOAD = "HOSTEL_LOAD";
-const HOSTEL_ERROR = "HOSTEL_ERROR";
+const HOSTEL_FETCH = "HOSTEL_FETCH";
+const HOSTEL_LOADING = "HOSTEL_LOADING";
+const LOAD_REVIEWS = "LOAD_REVIEWS";
+const ADD_REVIEW = "ADD_REVIEW";
+const DELETE_REVIEW = "DELETE_REVIEW";
+const RESET_HOSTEL_LOADING = "RESET_HOSTEL_LOADING";
 
 /***/ }),
 
@@ -1064,7 +1292,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _influencers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./influencers */ "./store/influencers/index.js");
 /* harmony import */ var _covid19__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./covid19 */ "./store/covid19/index.js");
 /* harmony import */ var _bs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./bs */ "./store/bs/index.js");
+/* harmony import */ var _locale__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./locale */ "./store/locale/index.js");
+/* harmony import */ var _sidebar__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./sidebar */ "./store/sidebar/index.js");
+/* harmony import */ var _categories__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./categories */ "./store/categories/index.js");
  //custom reducers
+
+
+
 
 
 
@@ -1084,7 +1318,10 @@ __webpack_require__.r(__webpack_exports__);
   services: _services__WEBPACK_IMPORTED_MODULE_6__["default"],
   influencers: _influencers__WEBPACK_IMPORTED_MODULE_7__["default"],
   covid19: _covid19__WEBPACK_IMPORTED_MODULE_8__["default"],
-  bs: _bs__WEBPACK_IMPORTED_MODULE_9__["default"]
+  bs: _bs__WEBPACK_IMPORTED_MODULE_9__["default"],
+  locale: _locale__WEBPACK_IMPORTED_MODULE_10__["default"],
+  mp_sidebar: _sidebar__WEBPACK_IMPORTED_MODULE_11__["default"],
+  categories: _categories__WEBPACK_IMPORTED_MODULE_12__["default"]
 }));
 
 /***/ }),
@@ -1277,6 +1514,83 @@ __webpack_require__.r(__webpack_exports__);
 const INFLUENCER_LOADING = "INFLUENCER_LOADING";
 const LOAD_INFLUENCERS = "LOAD_INFLUENCERS";
 const LOAD_SPEC_INFLUENCER = "LOAD_SPEC_INFLUENCER";
+
+/***/ }),
+
+/***/ "./store/locale/index.js":
+/*!*******************************!*\
+  !*** ./store/locale/index.js ***!
+  \*******************************/
+/*! exports provided: localeChange, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _localeReducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localeReducer */ "./store/locale/localeReducer.js");
+/* harmony import */ var _localeActions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./localeActions */ "./store/locale/localeActions.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "localeChange", function() { return _localeActions__WEBPACK_IMPORTED_MODULE_1__["localeChange"]; });
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (_localeReducer__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
+/***/ "./store/locale/localeActionTypes.js":
+/*!*******************************************!*\
+  !*** ./store/locale/localeActionTypes.js ***!
+  \*******************************************/
+/*! exports provided: LOCALE_CHANGE */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOCALE_CHANGE", function() { return LOCALE_CHANGE; });
+// eslint-disable-next-line import/prefer-default-export
+const LOCALE_CHANGE = 'LOCALE_CHANGE';
+
+/***/ }),
+
+/***/ "./store/locale/localeActions.js":
+/*!***************************************!*\
+  !*** ./store/locale/localeActions.js ***!
+  \***************************************/
+/*! exports provided: localeChange */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "localeChange", function() { return localeChange; });
+/* harmony import */ var _localeActionTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localeActionTypes */ "./store/locale/localeActionTypes.js");
+ // eslint-disable-next-line import/prefer-default-export
+
+const localeChange = locale => ({
+  type: _localeActionTypes__WEBPACK_IMPORTED_MODULE_0__["LOCALE_CHANGE"],
+  locale
+});
+
+/***/ }),
+
+/***/ "./store/locale/localeReducer.js":
+/*!***************************************!*\
+  !*** ./store/locale/localeReducer.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return localeReducer; });
+/* harmony import */ var _localeActionTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localeActionTypes */ "./store/locale/localeActionTypes.js");
+
+const initialState = 'en';
+function localeReducer(state = initialState, action) {
+  if (action.type === _localeActionTypes__WEBPACK_IMPORTED_MODULE_0__["LOCALE_CHANGE"]) {
+    return action.locale;
+  }
+
+  return state;
+}
 
 /***/ }),
 
@@ -2376,6 +2690,109 @@ const DELETE_SERVICE = "DELETE_SERVICE";
 const LOAD_REVIEWS = "LOAD_REVIEWS";
 const ADD_REVIEW = "ADD_REVIEW";
 const DELETE_REVIEW = "DELETE_REVIEW";
+
+/***/ }),
+
+/***/ "./store/sidebar/actions.js":
+/*!**********************************!*\
+  !*** ./store/sidebar/actions.js ***!
+  \**********************************/
+/*! exports provided: sidebarOpen, sidebarClose */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sidebarOpen", function() { return sidebarOpen; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sidebarClose", function() { return sidebarClose; });
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./store/sidebar/types.js");
+
+function sidebarOpen() {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_0__["SIDEBAR_OPEN"]
+  };
+}
+;
+function sidebarClose() {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_0__["SIDEBAR_CLOSE"]
+  };
+}
+
+/***/ }),
+
+/***/ "./store/sidebar/index.js":
+/*!********************************!*\
+  !*** ./store/sidebar/index.js ***!
+  \********************************/
+/*! exports provided: sidebarOpen, sidebarClose, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reducer */ "./store/sidebar/reducer.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions */ "./store/sidebar/actions.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sidebarOpen", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["sidebarOpen"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sidebarClose", function() { return _actions__WEBPACK_IMPORTED_MODULE_1__["sidebarClose"]; });
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (_reducer__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
+/***/ "./store/sidebar/reducer.js":
+/*!**********************************!*\
+  !*** ./store/sidebar/reducer.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./store/sidebar/types.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+const initialState = {
+  open: false
+};
+/* harmony default export */ __webpack_exports__["default"] = ((state = initialState, action) => {
+  switch (action.type) {
+    case _types__WEBPACK_IMPORTED_MODULE_0__["SIDEBAR_OPEN"]:
+      return _objectSpread({}, state, {
+        open: true
+      });
+
+    case _types__WEBPACK_IMPORTED_MODULE_0__["SIDEBAR_CLOSE"]:
+      return _objectSpread({}, state, {
+        open: false
+      });
+
+    default:
+      return state;
+  }
+});
+
+/***/ }),
+
+/***/ "./store/sidebar/types.js":
+/*!********************************!*\
+  !*** ./store/sidebar/types.js ***!
+  \********************************/
+/*! exports provided: SIDEBAR_OPEN, SIDEBAR_CLOSE */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SIDEBAR_OPEN", function() { return SIDEBAR_OPEN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SIDEBAR_CLOSE", function() { return SIDEBAR_CLOSE; });
+const SIDEBAR_OPEN = "SIDEBAR_OPEN";
+const SIDEBAR_CLOSE = "SIDEBAR_CLOSE";
 
 /***/ }),
 

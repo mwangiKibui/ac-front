@@ -1,6 +1,8 @@
 
 //components
 @import '../node_modules/bootstrap-css-only/css/bootstrap.min.css';
+@import '../node_modules/slick-carousel/slick/slick.css';
+@import '../node_modules/slick-carousel/slick/slick-theme.css';
 // @import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 //header
 @import './components/header/header.scss';
@@ -19,11 +21,13 @@
 @import './components/cards/influencer.scss';
 @import './components/cards/seller.scss';
 @import './components/cards/bs.scss';
+@import './components/cards/review.scss';
 
 //blocks
 //@block home
 @import './components/blocks/block-home';
 @import './components/blocks/general';
+@import './components/blocks/block-sidebar';
 
 
 //generals
@@ -31,10 +35,23 @@
 @import './components/generals/body';
 @import './components/generals/advert';
 @import './components/generals/form';
+@import './components/generals/pagination';
+@import './components/generals/slider';
 
 //shared
 @import './components/shared/block-header';
+@import './components/shared/slick';
+@import './components/shared/product-gallery';
+@import './components/shared/error';
+@import './components/shared/loader';
+@import './components/shared/product';//the hostel and the product
+@import './components/shared/widgets';
+@import './components/shared/filter-categories';
+
 
 //sections
 @import './components/sections/covid19.scss';
 @import './components/sections/bs.scss';
+@import './components/sections/hostels.scss';
+@import './components/sections/mp.scss';
+@import './components/sections/pages.scss';

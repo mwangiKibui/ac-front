@@ -9,6 +9,7 @@ $heading_font:'Source Sans Pro', sans-serif;
 $background:#000F26;
 $card-bg:rgb(19,38,57);
 $link-color:gray;
+$accent-color:#ffc338;
 //colors
 $light-divider-color:#ebebeb;
 
@@ -62,16 +63,66 @@ $border-end-end-radius:     border-bottom- + $inline-end + -radius   !default;
 
 //links
 $link-color:                     #1a66ff               !default;
-$link-hover-color:               #1a66ff               !default;
-
- // ----------------------------------------
-   // -- .block-header
-   // ----------------------------------------
-   $block-header-divider-size:          2px                                       !default;
+$link-hover-color:               coral               !default;
 
 // ----------------------------------------
-   // -- preloader
-   // ----------------------------------------
-   $preloader-thickness: 2px            !default;
-   $preloader-color-1:   #009933 !default;
-   $preloader-color-2:   #fff !default;
+// -- .block-header
+// ----------------------------------------
+$block-header-divider-size:          2px                                       !default;
+
+// ----------------------------------------
+// -- preloader
+// ----------------------------------------
+$preloader-thickness: 2px            !default;
+$preloader-color-1:   #009933 !default;
+$preloader-color-2:   #fff !default;
+
+// ----------------------------------------
+// -- .modal
+// ----------------------------------------
+$modal-border-radius: 2px                                                   !default;
+$modal-shadow:        0 1px 20px rgba(#000, .15), 0 1px 3px rgba(#000, .15) !default;
+// ----------------------------------------
+// -- gallery
+// ----------------------------------------
+$product-gallery-item-border-radius:  2px                           !default;
+$product-gallery-item-default-shadow: 0 0 0 2px #f2f2f2 inset       !default;
+$product-gallery-item-active-shadow:  0 0 0 2px $accent-color inset !default;
+
+// ----------------------------------------
+// -- body
+// ----------------------------------------
+$font-weight-normal: 400 !default;
+$font-weight-bold:   700 !default;
+$body-bg:               #000F26              !default;
+$body-font-color:       $background       !default;
+$body-font-muted-color: $background !default;
+$body-font-alt-color:   $background   !default;
+$body-font-family:      'Roboto', 'sans-serif'      !default;
+$body-font-size:        16px                        !default;
+$body-font-weight:      $font-weight-normal         !default;
+$body-line-height:      1.5                         !default;
+$body-divider-color:    #fff        !default;
+
+$card-border-width:     2px                                         !default;
+$card-border-color:     #fff                                   !default;
+$card-border-radius:    2px;
+$card-border:           $card-border-width solid $card-border-color !default;
+
+//nav panel
+$nav-panel-height:       54px                                                                            !default;
+$nav-panel-padding:      6px                                                                             !default;
+
+// ----------------------------------------
+// -- .mobilemenu
+// ----------------------------------------
+$mobilemenu-backdrop-bg:                $background          !default;
+$mobilemenu-bg:                         $background                !default;
+$mobilemenu-shadow:                     0 0 20px rgba(#000, .4) !default;
+$mobilemenu-divider-color:              #fff                !default;
+$mobilemenu-header-height:              $nav-panel-height       !default;
+$mobilemenu-font-color:                 #fff  !default;
+$mobilemenu-font-muted-color:           #fff                   !default;
+$mobilemenu-deep-links-bg:              #f7f7f7                 !default;
+$mobilemenu-close-button-default-color: #fff                 !default;
+$mobilemenu-close-button-hover-color:   #fff   !default;

@@ -1,0 +1,41 @@
+@import '../variables.scss';
+
+.reviews_heading{
+    color: #fff;
+    font-family: $card-font;
+    font-size: 19px;
+};
+
+.media_review_profile{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+};
+
+.media_review_name{
+    font-family: $card-font;
+    color: gray;
+    text-decoration: none;
+    &:hover{
+        text-decoration: none;
+        color: gray;
+    }
+};
+
+.media_review_date{
+    font-family: $card-font;
+    color: gray;
+    font-size: 16px;
+}
+
+.media_review_message{
+    font-family: $card-font;
+    color: #fff;
+    font-size:17px;
+};
+
+.media_review_date{
+    font-family: $card-font;
+    color: gray;
+    font-size: 16px;
+};

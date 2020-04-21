@@ -49,10 +49,10 @@ const ComponentsNavbar = (props) => {
                 </NavLink>
               </NavItem>               
               <NavItem>
-                <NavLink href="/platform/market_place" >Market place</NavLink>
+                <NavLink href="/market_place" >Market place</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/platform/hostels" >Hostels</NavLink>
+                <NavLink href="/hostels" >Hostels</NavLink>
               </NavItem>
               <NavItem>
                   <NavLink href="/bs/ovo_fries" >Ovo fry's</NavLink>

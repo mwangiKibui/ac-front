@@ -1,0 +1,39 @@
+/*
+// .modal also has our content in
+*/
+@import '../variables.scss';
+
+
+.modal {
+    background: $background;
+}
+.modal-content {
+    border: none;
+    border-radius: $modal-border-radius;
+    box-shadow: $modal-shadow;
+    color: #fff;
+};
+
+.modal_heading{
+    font-size: 17px;
+    font-family:$card-font;
+    color: #fff;
+};
+
+/** modal-review heading */
+.modal-review_heading{
+    font-size: 17px;
+    font-family: $card-font;
+    color: #fff;
+}
+
+.modals_heading{
+    font-size: 16px;
+    font-family: $card-font;
+    color: #fff;
+}
+
+//the close button
+.close span{
+    color: #fff;
+};

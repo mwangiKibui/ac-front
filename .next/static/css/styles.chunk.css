@@ -7447,6 +7447,245 @@ a.text-dark:focus, a.text-dark:hover {
 
 /*# sourceMappingURL=bootstrap.min.css.map */
 
+/* Slider */
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent; }
+
+.slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0; }
+
+.slick-list:focus {
+  outline: none; }
+
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand; }
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
+
+.slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.slick-track:before,
+.slick-track:after {
+  display: table;
+  content: ''; }
+
+.slick-track:after {
+  clear: both; }
+
+.slick-loading .slick-track {
+  visibility: hidden; }
+
+.slick-slide {
+  display: none;
+  float: left;
+  height: 100%;
+  min-height: 1px; }
+
+[dir='rtl'] .slick-slide {
+  float: right; }
+
+.slick-slide img {
+  display: block; }
+
+.slick-slide.slick-loading img {
+  display: none; }
+
+.slick-slide.dragging img {
+  pointer-events: none; }
+
+.slick-initialized .slick-slide {
+  display: block; }
+
+.slick-loading .slick-slide {
+  visibility: hidden; }
+
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent; }
+
+.slick-arrow.slick-hidden {
+  display: none; }
+
+@charset "UTF-8";
+/* Slider */
+.slick-loading .slick-list {
+  background: #fff url([object Module]) center center no-repeat; }
+
+/* Icons */
+@font-face {
+  font-family: 'slick';
+  font-weight: normal;
+  font-style: normal;
+  src: url([object Module]);
+  src: url([object Module]?#iefix) format("embedded-opentype"), url([object Module]) format("woff"), url([object Module]) format("truetype"), url([object Module]#slick) format("svg"); }
+
+/* Arrows */
+.slick-prev,
+.slick-next {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent; }
+
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+  color: transparent;
+  outline: none;
+  background: transparent; }
+
+.slick-prev:hover:before,
+.slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before {
+  opacity: 1; }
+
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before {
+  opacity: .25; }
+
+.slick-prev:before,
+.slick-next:before {
+  font-family: 'slick';
+  font-size: 20px;
+  line-height: 1;
+  opacity: .75;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.slick-prev {
+  left: -25px; }
+
+[dir='rtl'] .slick-prev {
+  right: -25px;
+  left: auto; }
+
+.slick-prev:before {
+  content: '\2190'; }
+
+[dir='rtl'] .slick-prev:before {
+  content: '\2192'; }
+
+.slick-next {
+  right: -25px; }
+
+[dir='rtl'] .slick-next {
+  right: auto;
+  left: -25px; }
+
+.slick-next:before {
+  content: '\2192'; }
+
+[dir='rtl'] .slick-next:before {
+  content: '\2190'; }
+
+/* Dots */
+.slick-dotted.slick-slider {
+  margin-bottom: 30px; }
+
+.slick-dots {
+  position: absolute;
+  bottom: -25px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center; }
+
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer; }
+
+.slick-dots li button {
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  cursor: pointer;
+  color: transparent;
+  border: 0;
+  outline: none;
+  background: transparent; }
+
+.slick-dots li button:hover,
+.slick-dots li button:focus {
+  outline: none; }
+
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
+  opacity: 1; }
+
+.slick-dots li button:before {
+  font-family: 'slick';
+  font-size: 6px;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  content: '\2022';
+  text-align: center;
+  opacity: .25;
+  color: black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.slick-dots li.slick-active button:before {
+  opacity: .75;
+  color: black; }
+
 .navbar {
   color: black;
   height: 80px;
@@ -7566,7 +7805,7 @@ a.text-dark:focus, a.text-dark:hover {
     font-family: "Baloo Tamma 2", cursive;
     transition: .15s; }
   .footer-links__list a:hover {
-    color: #1a66ff; }
+    color: coral; }
 
 @media (max-width: 767px) {
   .footer-links__title {
@@ -8030,6 +8269,39 @@ a.text-dark:focus, a.text-dark:hover {
   font-family: "Baloo Tamma 2", cursive;
   font-size: 14px; }
 
+.reviews_heading {
+  color: #fff;
+  font-family: "Baloo Tamma 2", cursive;
+  font-size: 19px; }
+
+.media_review_profile {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; }
+
+.media_review_name {
+  font-family: "Baloo Tamma 2", cursive;
+  color: gray;
+  text-decoration: none; }
+  .media_review_name:hover {
+    text-decoration: none;
+    color: gray; }
+
+.media_review_date {
+  font-family: "Baloo Tamma 2", cursive;
+  color: gray;
+  font-size: 16px; }
+
+.media_review_message {
+  font-family: "Baloo Tamma 2", cursive;
+  color: #fff;
+  font-size: 17px; }
+
+.media_review_date {
+  font-family: "Baloo Tamma 2", cursive;
+  color: gray;
+  font-size: 16px; }
+
 /*
 // .block-slideshow
 */
@@ -8126,34 +8398,6 @@ a.text-dark:focus, a.text-dark:hover {
   font-family: "Baloo Tamma 2", cursive;
   padding: 10px; }
 
-.slick-dots {
-  list-style-type: none;
-  width: 100%;
-  bottom: 0px;
-  text-align: center;
-  margin-top: 3px; }
-
-.slick-dots li {
-  display: inline-flex;
-  justify-content: space-between;
-  margin-right: 5px; }
-
-.slick-dots li button {
-  width: 50px;
-  height: 2px;
-  overflow: hidden;
-  border: none;
-  color: gray;
-  background: gray; }
-
-.slick-dots .slick-active button {
-  width: 50px;
-  height: 2px;
-  overflow: hidden;
-  color: #009999;
-  background: #009999;
-  border: none; }
-
 @media (max-width: 991px) {
   .home {
     width: 100%;
@@ -8193,6 +8437,197 @@ a.text-dark:focus, a.text-dark:hover {
 
 .blockSellers {
   margin-top: 30px; }
+
+/*
+// .block-sidebar
+*/
+.block-sidebar__item + .block-sidebar__item {
+  margin-top: 30px; }
+
+[dir=ltr] .block-sidebar--position--start {
+  padding-right: 20px; }
+
+[dir=rtl] .block-sidebar--position--start {
+  padding-left: 20px; }
+
+@media (max-width: 1199px) {
+  [dir=ltr] .block-sidebar--position--start {
+    padding-right: 6px; }
+  [dir=rtl] .block-sidebar--position--start {
+    padding-left: 6px; } }
+
+@media (max-width: 991px) {
+  [dir=ltr] .block-sidebar--position--start {
+    padding-right: 0; }
+  [dir=rtl] .block-sidebar--position--start {
+    padding-left: 0; } }
+
+[dir=ltr] .block-sidebar--position--end {
+  padding-left: 20px; }
+
+[dir=rtl] .block-sidebar--position--end {
+  padding-right: 20px; }
+
+@media (max-width: 1199px) {
+  [dir=ltr] .block-sidebar--position--end {
+    padding-left: 6px; }
+  [dir=rtl] .block-sidebar--position--end {
+    padding-right: 6px; } }
+
+@media (max-width: 991px) {
+  [dir=ltr] .block-sidebar--position--end {
+    padding-left: 0; }
+  [dir=rtl] .block-sidebar--position--end {
+    padding-right: 0; } }
+
+.block-sidebar__header {
+  height: 55px;
+  flex-shrink: 0;
+  align-items: center;
+  border-bottom: 1px solid #fff;
+  display: none; }
+
+.block-sidebar__title {
+  padding: 0 20px;
+  font-weight: 700;
+  flex-grow: 1;
+  color: #fff;
+  font-family: "Baloo Tamma 2", cursive; }
+
+.block-sidebar__close {
+  border: none;
+  background: #132639;
+  color: #fff;
+  height: 54px;
+  width: 55px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  fill: #fff;
+  transition: fill .2s; }
+  [dir=ltr] .block-sidebar__close {
+    border-left: 1px solid #fff; }
+  [dir=rtl] .block-sidebar__close {
+    border-right: 1px solid #fff; }
+  .block-sidebar__close:focus {
+    outline: none; }
+  .block-sidebar__close:focus, .block-sidebar__close:hover {
+    fill: #fff; }
+
+.block-sidebar--offcanvas--always {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  transition: visibility 0s 0.3s; }
+  [dir=ltr] .block-sidebar--offcanvas--always {
+    left: 0; }
+  [dir=rtl] .block-sidebar--offcanvas--always {
+    right: 0; }
+  .block-sidebar--offcanvas--always .block-sidebar__backdrop {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000F26;
+    opacity: 0;
+    transition: opacity 0.3s; }
+    [dir=ltr] .block-sidebar--offcanvas--always .block-sidebar__backdrop {
+      left: 0; }
+    [dir=rtl] .block-sidebar--offcanvas--always .block-sidebar__backdrop {
+      right: 0; }
+  .block-sidebar--offcanvas--always .block-sidebar__body {
+    position: absolute;
+    top: 0;
+    width: 290px;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background: #000F26;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    font-family: "Baloo Tamma 2", cursive; }
+    [dir=ltr] .block-sidebar--offcanvas--always .block-sidebar__body {
+      left: 0;
+      transform: translateX(-100%) translateX(-30px); }
+    [dir=rtl] .block-sidebar--offcanvas--always .block-sidebar__body {
+      right: 0;
+      transform: translateX(100%) translateX(30px); }
+  .block-sidebar--offcanvas--always .block-sidebar__header {
+    display: flex; }
+  .block-sidebar--offcanvas--always.block-sidebar--open {
+    visibility: visible;
+    transition-delay: 0s; }
+    .block-sidebar--offcanvas--always.block-sidebar--open .block-sidebar__backdrop {
+      opacity: .9; }
+    [dir=ltr] .block-sidebar--offcanvas--always.block-sidebar--open .block-sidebar__body {
+      transform: translateX(0); }
+    [dir=rtl] .block-sidebar--offcanvas--always.block-sidebar--open .block-sidebar__body {
+      transform: translateX(0); }
+
+@media (max-width: 991px) {
+  .block-sidebar--offcanvas--mobile {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    transition: visibility 0s 0.3s; }
+    [dir=ltr] .block-sidebar--offcanvas--mobile {
+      left: 0; }
+    [dir=rtl] .block-sidebar--offcanvas--mobile {
+      right: 0; }
+    .block-sidebar--offcanvas--mobile .block-sidebar__backdrop {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: #000F26;
+      opacity: 0;
+      transition: opacity 0.3s; }
+      [dir=ltr] .block-sidebar--offcanvas--mobile .block-sidebar__backdrop {
+        left: 0; }
+      [dir=rtl] .block-sidebar--offcanvas--mobile .block-sidebar__backdrop {
+        right: 0; }
+    .block-sidebar--offcanvas--mobile .block-sidebar__body {
+      position: absolute;
+      top: 0;
+      width: 290px;
+      height: 100%;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      background: #000F26;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+      font-family: "Baloo Tamma 2", cursive; }
+      [dir=ltr] .block-sidebar--offcanvas--mobile .block-sidebar__body {
+        left: 0;
+        transform: translateX(-100%) translateX(-30px); }
+      [dir=rtl] .block-sidebar--offcanvas--mobile .block-sidebar__body {
+        right: 0;
+        transform: translateX(100%) translateX(30px); }
+    .block-sidebar--offcanvas--mobile .block-sidebar__header {
+      display: flex; }
+    .block-sidebar--offcanvas--mobile.block-sidebar--open {
+      visibility: visible;
+      transition-delay: 0s; }
+      .block-sidebar--offcanvas--mobile.block-sidebar--open .block-sidebar__backdrop {
+        opacity: .9; }
+      [dir=ltr] .block-sidebar--offcanvas--mobile.block-sidebar--open .block-sidebar__body {
+        transform: translateX(0); }
+      [dir=rtl] .block-sidebar--offcanvas--mobile.block-sidebar--open .block-sidebar__body {
+        transform: translateX(0); } }
 
 .btn {
   font-family: "Baloo Tamma 2", cursive;
@@ -8365,6 +8800,45 @@ label {
   font-family: "Baloo Tamma 2", cursive;
   font-size: 16px; }
 
+.pagination_container {
+  cursor: pointer; }
+
+.page-link {
+  cursor: pointer; }
+
+.page-item :active {
+  cursor: pointer !important; }
+
+.slick-dots {
+  list-style-type: none;
+  width: 100%;
+  bottom: 0px;
+  text-align: center;
+  margin-top: 5px;
+  position: relative !important; }
+
+.slick-dots li {
+  display: inline-flex;
+  justify-content: space-between;
+  margin-right: 5px; }
+
+.slick-dots li button {
+  width: 50px;
+  height: 1px;
+  overflow: hidden;
+  border: none;
+  color: gray;
+  background: gray;
+  padding: 0px; }
+
+.slick-dots .slick-active button {
+  width: 50px;
+  height: 1px !important;
+  overflow: hidden;
+  color: #009999;
+  background: #009999;
+  border: none; }
+
 /*
 // .block-header
 */
@@ -8426,6 +8900,12 @@ label {
   [dir=rtl] .block-header__arrow svg {
     transform: scaleX(-1); }
 
+.block-header__arrow-icon-left {
+  color: #fff; }
+
+.block-header__arrow-icon-right {
+  color: #fff; }
+
 .block-header__arrow--left {
   left: -12px;
   top: 100%;
@@ -8485,6 +8965,491 @@ label {
     margin-left: 16px; }
   [dir=rtl] .block-header__divider + .block-header__groups-list + .block-header__arrows-list {
     margin-right: 16px; } }
+
+.slick-prevent-click--active .slick-list:before {
+  position: absolute;
+  content: '';
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1000; }
+
+/*
+// .product-gallery
+*/
+.product-gallery img {
+  max-width: 100%;
+  height: auto; }
+
+.product-gallery__featured-image {
+  max-width: 100%;
+  height: 400px !important; }
+
+.product-gallery__featured {
+  box-shadow: 0 0 0 2px #f2f2f2 inset;
+  padding: 2px;
+  border-radius: 2px; }
+  .product-gallery__featured a {
+    display: block;
+    padding: 20px;
+    vertical-align: middle; }
+    .product-gallery__featured a:focus {
+      outline: none; }
+
+.product-gallery__carousel {
+  margin-top: 16px; }
+  .product-gallery__carousel .slick-list {
+    margin: 0 -5px; }
+  .product-gallery__carousel .slick-slide {
+    padding: 0 5px; }
+  [dir=ltr] .product-gallery__carousel .slick-track {
+    margin-left: 0; }
+  [dir=rtl] .product-gallery__carousel .slick-track {
+    margin-right: 0; }
+
+.product-gallery__carousel-item {
+  vertical-align: middle;
+  cursor: pointer;
+  display: block;
+  box-shadow: 0 0 0 2px #f2f2f2 inset;
+  padding: 12px;
+  border-radius: 2px;
+  border: none;
+  background: transparent; }
+  .product-gallery__carousel-item:focus {
+    outline: none; }
+
+.product-gallery__carousel-item--active {
+  box-shadow: 0 0 0 2px #ffc338 inset; }
+
+.error_section {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  margin: 10px auto; }
+
+.error_section_icon {
+  width: 100%;
+  font-size: 30px;
+  margin: 10px auto;
+  color: #fff; }
+
+.error_section_msg {
+  font-family: "Baloo Tamma 2", cursive;
+  font-size: 18px;
+  color: #fff; }
+
+.homepage_loader_container {
+  width: 100%;
+  height: 100%;
+  position: relative; }
+
+.homepage_loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; }
+
+.loader_container {
+  width: 100%;
+  height: 80vh;
+  position: relative; }
+
+.loader_inner {
+  position: absolute;
+  top: 45%;
+  left: 0px;
+  width: 100%; }
+
+.loader {
+  width: 100;
+  text-align: center; }
+
+.loader_text {
+  font-family: "Source Sans Pro", sans-serif;
+  margin: 5px 0px; }
+
+/*
+// .product
+*/
+.product__content {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+  grid-template-columns: [gallery] calc(50% - 20px) [info] calc(50% - 20px);
+  grid-template-rows: auto auto auto auto auto;
+  grid-column-gap: 40px; }
+
+.product__gallery {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 6;
+  -ms-grid-column: 1;
+  grid-row-start: 1;
+  grid-row-end: 6;
+  min-height: 0; }
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    [dir=ltr] .product__gallery {
+      margin-right: 40px; }
+    [dir=rtl] .product__gallery {
+      margin-left: 40px; } }
+
+.product__info {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  position: relative;
+  min-height: 0; }
+
+.product__name {
+  color: #fff;
+  font-family: "Baloo Tamma 2", cursive;
+  font-size: 20px; }
+
+.product__description {
+  color: #fff;
+  font-size: 16px;
+  font-family: "Baloo Tamma 2", cursive; }
+
+.product__sidebar {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2; }
+
+.product__footer {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2; }
+
+.product__footer_text {
+  font-family: "Baloo Tamma 2", cursive;
+  color: #fff; }
+
+.product__wishlist-compare {
+  display: none; }
+
+.product__name {
+  margin-bottom: 18px; }
+
+.product__rating {
+  display: flex;
+  margin-bottom: 5px; }
+
+.product_reviews-link {
+  font-family: "Baloo Tamma 2", cursive;
+  color: gray; }
+
+.product__features {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px; }
+  .product__features li {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    position: relative; }
+    [dir=ltr] .product__features li {
+      padding-left: 13px;
+      padding-right: 0; }
+    [dir=rtl] .product__features li {
+      padding-right: 13px;
+      padding-left: 0; }
+  .product__features li::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 9px;
+    width: 5px;
+    height: 5px;
+    border-radius: 2.5px;
+    border: 1px solid currentColor; }
+    [dir=ltr] .product__features li::before {
+      left: 0; }
+    [dir=rtl] .product__features li::before {
+      right: 0; }
+
+.product__meta {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 12px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  color: #000F26;
+  font-size: 14px;
+  border-top: 1px solid #fff; }
+  [dir=ltr] .product__meta li {
+    margin-right: 18px; }
+  [dir=rtl] .product__meta li {
+    margin-left: 18px; }
+  .product__meta a {
+    color: inherit;
+    transition: color .2s; }
+  .product__meta a:hover {
+    color: coral; }
+
+.product__availability {
+  display: none; }
+
+.product__prices {
+  margin-top: 18px;
+  margin-bottom: 14px; }
+
+.product__price {
+  font-size: 17px;
+  color: gray;
+  font-family: "Baloo Tamma 2", cursive; }
+
+.tags__list {
+  color: #fff;
+  font-family: "Baloo Tamma 2", cursive;
+  text-decoration: underline; }
+
+.product__footer {
+  margin-top: 32px;
+  display: inline-flex;
+  justify-content: space-between; }
+
+[dir=ltr] .product__tags {
+  margin-right: 24px;
+  margin-left: 0; }
+
+[dir=rtl] .product__tags {
+  margin-left: 24px;
+  margin-right: 0; }
+
+.product__share-links {
+  margin-top: 2px;
+  margin-bottom: 2px; }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .product__name {
+    margin-bottom: 18px;
+    font-family: "Baloo Tamma 2", cursive;
+    color: #fff; } }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .product__content {
+    -ms-grid-columns: 44% 56%;
+    grid-template-columns: [gallery] calc(44% - 15px) [info] calc(56% - 15px);
+    grid-column-gap: 30px; } }
+
+@media screen and (min-width: 768px) and (max-width: 991px) and (-ms-high-contrast: active), (min-width: 768px) and (max-width: 991px) and (-ms-high-contrast: none) {
+  [dir=ltr] .product__gallery {
+    margin-right: 30px; }
+  [dir=rtl] .product__gallery {
+    margin-left: 30px; } }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .product__name {
+    margin-bottom: 18px;
+    font-family: "Baloo Tamma 2", cursive;
+    color: #fff; }
+  .product__footer {
+    display: block;
+    margin-top: 18px; }
+  .product__share-links {
+    margin: 12px 0 0; } }
+
+@media (max-width: 767px) {
+  .product__content {
+    display: block; }
+  .product__gallery {
+    margin-bottom: 24px; }
+  .product__name {
+    margin-bottom: 18px;
+    font-family: "Baloo Tamma 2", cursive;
+    color: #fff; }
+  .product__footer {
+    margin-top: 22px; } }
+
+@media (max-width: 559px) {
+  .product__footer {
+    display: block;
+    margin-top: 22px; }
+  .product__share-links {
+    margin: 12px 0 0; } }
+
+@media (min-width: 992px) {
+  .product--layout--sidebar .product__content {
+    -ms-grid-columns: 50% 50%;
+    grid-template-columns: [gallery] calc(50% - 16px) [info] calc(50% - 16px);
+    grid-column-gap: 32px; } }
+
+@media screen and (min-width: 992px) and (-ms-high-contrast: active), (min-width: 992px) and (-ms-high-contrast: none) {
+  [dir=ltr] .product--layout--sidebar .product__gallery {
+    margin-right: 32px; }
+  [dir=rtl] .product--layout--sidebar .product__gallery {
+    margin-left: 32px; } }
+
+@media (min-width: 992px) {
+  .product--layout--sidebar .product__name {
+    margin-bottom: 12px;
+    color: #fff;
+    font-family: "Baloo Tamma 2", cursive; }
+  .product--layout--sidebar .product__footer {
+    display: block;
+    margin-top: 18px; }
+  .product--layout--sidebar .product__share-links {
+    margin: 12px 0 0; } }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .product--layout--quickview .product__content {
+    grid-template-columns: [gallery] calc(50% - 16px) [info] calc(50% - 16px);
+    grid-column-gap: 32px; }
+  .product--layout--quickview .product__name {
+    margin-bottom: 12px;
+    font-family: "Baloo Tamma 2", cursive;
+    color: #fff; }
+  .product--layout--quickview .product__footer {
+    display: block;
+    margin-top: 18px; }
+  .product--layout--quickview .product__share-links {
+    margin: 12px 0 0; } }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .product--layout--quickview .product__content {
+    display: block; }
+  .product--layout--quickview .product__gallery {
+    margin-bottom: 24px; }
+  .product--layout--quickview .product__name {
+    margin-bottom: 18px;
+    color: #fff;
+    font-family: "Baloo Tamma 2", cursive; } }
+
+/*
+// .widget-filters
+*/
+.widget__title {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #fff;
+  font-family: "Baloo Tamma 2", cursive; }
+
+.widget-filters {
+  border: 2px solid #fff;
+  border-radius: 2px;
+  padding: 1rem; }
+
+.widget-filters__title {
+  color: #fff;
+  font-family: "Baloo Tamma 2", cursive; }
+
+.widget-filters__item {
+  padding: 8px 1rem;
+  margin: 0 -1rem;
+  border-bottom: 2px solid #fff; }
+  .widget-filters__item:first-child {
+    border-top: 2px solid #fff; }
+
+.widget-filters__actions {
+  padding-top: 24px;
+  padding-bottom: 16px; }
+  [dir=ltr] .widget-filters__actions > .btn + .btn {
+    margin-left: 8px; }
+  [dir=rtl] .widget-filters__actions > .btn + .btn {
+    margin-right: 8px; }
+
+.widget-filters--offcanvas--always {
+  border: none;
+  padding-top: 0; }
+  .widget-filters--offcanvas--always .widget-filters__title {
+    display: none;
+    color: #fff;
+    font-family: "Baloo Tamma 2", cursive; }
+  .widget-filters--offcanvas--always .widget-filters__item:first-child {
+    border-top: none; }
+  .widget-filters--offcanvas--always .widget-filters__item {
+    border-width: 1px; }
+
+@media (max-width: 991px) {
+  .widget-filters--offcanvas--mobile {
+    border: none;
+    padding-top: 0; }
+    .widget-filters--offcanvas--mobile .widget-filters__title {
+      display: none;
+      color: #fff;
+      font-family: "Baloo Tamma 2", cursive; }
+    .widget-filters--offcanvas--mobile .widget-filters__item:first-child {
+      border-top: none; }
+    .widget-filters--offcanvas--mobile .widget-filters__item {
+      border-width: 1px; } }
+
+/*
+// .filter-categories
+*/
+.filter-categories__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  line-height: 18px; }
+  .filter-categories__list a {
+    color: inherit;
+    transition: color .15s; }
+  .filter-categories__list a:hover {
+    color: coral; }
+
+.filter-categories__item {
+  padding: 6px 0;
+  display: flex; }
+  .filter-categories__item > a {
+    flex-grow: 1;
+    color: #fff;
+    font-family: "Baloo Tamma 2", cursive; }
+    [dir=ltr] .filter-categories__item > a {
+      padding-right: 10px; }
+    [dir=rtl] .filter-categories__item > a {
+      padding-left: 10px; }
+
+.filter-categories__item-active {
+  padding: 6px 0;
+  display: flex; }
+  .filter-categories__item-active > a {
+    flex-grow: 1;
+    color: coral;
+    font-family: "Baloo Tamma 2", cursive; }
+    [dir=ltr] .filter-categories__item-active > a {
+      padding-right: 10px; }
+    [dir=rtl] .filter-categories__item-active > a {
+      padding-left: 10px; }
+
+.filter-categories__item--parent {
+  position: relative; }
+  [dir=ltr] .filter-categories__item--parent {
+    padding-left: 14px; }
+  [dir=rtl] .filter-categories__item--parent {
+    padding-right: 14px; }
+
+.filter-categories__item--current {
+  font-weight: 700; }
+
+.filter-categories__item--child {
+  position: relative;
+  font-size: 15px; }
+  [dir=ltr] .filter-categories__item--child {
+    padding-left: 14px; }
+  [dir=rtl] .filter-categories__item--child {
+    padding-right: 14px; }
+
+.filter-categories__arrow {
+  fill: #fff;
+  position: absolute;
+  top: 10px;
+  color: #fff; }
+  [dir=ltr] .filter-categories__arrow {
+    left: 0;
+    transform: scaleX(1); }
+  [dir=rtl] .filter-categories__arrow {
+    right: 0;
+    transform: scaleX(-1); }
+
+.filter-categories__counter {
+  font-size: 12px;
+  line-height: 12px;
+  padding-top: 4px;
+  font-weight: 400;
+  color: #fff;
+  font-family: "Baloo Tamma 2", cursive; }
 
 .covid19 {
   width: 100%;
@@ -8564,6 +9529,42 @@ option {
   color: gray;
   font-family: "Baloo Tamma 2", cursive;
   font-size: 17px; }
+
+.hostels {
+  width: 100%;
+  margin-top: 90px; }
+
+.hostel {
+  width: 100%;
+  margin-top: 90px; }
+
+.reviews {
+  width: 100%;
+  margin-top: 90px; }
+
+.mp {
+  width: 100%;
+  margin-top: 90px; }
+
+.electronics {
+  width: 100%;
+  margin-top: 90px; }
+
+.furniture {
+  width: 100%;
+  margin-top: 90px; }
+
+.beauty {
+  width: 100%;
+  margin-top: 90px; }
+
+.clothing {
+  width: 100%;
+  margin-top: 90px; }
+
+.footwear {
+  width: 100%;
+  margin-top: 90px; }
 
 
 /*# sourceMappingURL=styles.chunk.css.map*/

@@ -1,0 +1,13 @@
+@import '../variables.scss';
+
+.pagination_container{
+    cursor: pointer;
+};
+
+.page-link{
+    cursor: pointer;
+};
+
+.page-item :active{ 
+    cursor: pointer !important;
+}
