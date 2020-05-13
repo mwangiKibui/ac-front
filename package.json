@@ -7,7 +7,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start $PORT",
-    "export":"next build && next export"
+    "export":"npm run build && next export"
   },
   "keywords": [],
   "author": "",

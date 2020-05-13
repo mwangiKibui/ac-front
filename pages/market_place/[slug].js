@@ -70,11 +70,11 @@ const Product =  (props) =>  {
                 <ProductGallery layout={'layout'} images={product['profiles']} />
                 <div className="product__info">                        
                     <h1 className="product__name">{product.name}</h1>
-                    <div className="product__reviews"> 
+                    {/* <div className="product__reviews"> 
                             <Link href={`/platform/products/${prodSlug}/reviews`}>
                             <a className="product_reviews-link">{`${product['reviews'].length} Review(s)`}</a>
                             </Link>
-                    </div>
+                    </div> */}
                     <div className="product__description">
                         <p>{product['description']}</p>
                     </div>
@@ -159,7 +159,7 @@ Product.getInitialProps = async ({store,query}) => {
     await store.dispatch(fetchProduct(query.slug));
     await store.dispatch(fetchProducts());
     let product = store.getState().products.product;
-    await store.dispatch(loadReviews(product['reviews']));
+    // await store.dispatch(loadReviews(product['reviews']));
     let error = store.getState().products.error;
     let products = store.getState().products.basic;
     let related = products.filter(prod => prod.slug !== query.slug);
