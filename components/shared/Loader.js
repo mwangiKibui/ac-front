@@ -15,7 +15,6 @@ const overide_css = css`
 const Loader = ({loading}) => {
     return (
         <div className="loader_container">
-            <div className="loader_inner">
                 <div className="loader">
                     <ClipLoader 
                     css={overide_css}
@@ -23,9 +22,8 @@ const Loader = ({loading}) => {
                     color={'#009933'}
                     loading={loading}
                     />
-                    <h2 className="loader_text">allcomrades</h2>
+                    <h2 className="loader_text">Please Wait!!</h2>
                 </div>
-            </div>
         </div>
     )
 };

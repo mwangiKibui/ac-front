@@ -1,9 +1,12 @@
 //React
 import React,{useState} from 'react';
 //third-party
+import {ClipLoader} from 'react-spinners';
 //components
 import Layout from '../../components/Layout';
+import Pagination from '../../components/Pagination';
 import BlockHeader from '../../components/shared/BlockHeader';
+import BreadCrumb from '../../components/shared/breadcrumbs';
 import {fetchPremiums,fetchProducts} from '../../store/products';
 import {loadServices} from '../../store/services';
 import Items from '../../components/mp/Items';
@@ -14,7 +17,19 @@ import Error from '../../components/shared/Error';
 const Furniture = ({premiums,basic,services,related}) => {
 
     const [items] = useState([...premiums,...basic,...services].filter(prod => prod.type === "furniture"));
-   
+    const [pending,setPending] = useState(false);
+    const [currentPage,setCurrentPage] = useState(1);
+    const paginate = number => {
+
+        setTimeout(() => {
+            setCurrentPage(number);            
+            return setPending(false);
+        },1000);
+
+        setPending(true);
+        
+    };
+
     return (
         <Layout>
             <Meta
@@ -26,21 +41,39 @@ const Furniture = ({premiums,basic,services,related}) => {
             <section className="furniture">
                 <div className="container">
                     <div className="row"> 
-
+                        
+                        <div className="col-12 col-sm-12 col-md-12">
+                            <BreadCrumb
+                            breadcrumb={[
+                                {title:'Home',url:'/'},
+                                {title:'Market Place',url:'/market_place'},
+                                {title:`furniture`,url:'/market_place/furniture'}
+                            ]}
+                            />
+                        </div>
                         <div className="col-12 col-sm-12 col-md-12">
                         <BlockHeader title="Furniture at allcomrades" />
                         </div>
                         <div className="col-12 col-sm-12 col-md-12">
-                        {
+                        {  
+                            pending ? (
+                                <div className="col-12 col-md-12 col-sm-12 text-center">
+                                <ClipLoader size="30px" color="#009933"/>
+                                </div>
+                            ): (
                             items.length > 0 ? (
-                                <Items items={items} page={true} />
+                                <Items items={items} currentPage={currentPage} />
                             ) : (
                                 <Error message="No furnitures added yet!" btn={true} />
-                            )
+                            ))
                         }
                         </div>
-                    </div>
-                    <Related data={related} title="Related" card="products"/>
+                        <div className="col-12 col-sm-12 col-md-12">
+                            <Pagination elementsPerPage={8} totalElements={items.length} paginate={paginate}
+                            currentPage={currentPage}/>
+                        </div>
+                    </div>                    
+                <Related data={related} title="Related" card="products"/>
                 </div>                
             </section>
         </Layout>        

@@ -1,11 +1,13 @@
 //fonts
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300&display=swap');
 
 
 $font:'Baloo Tamma 2', cursive;
 $card-font:$font;
 $heading_font:'Source Sans Pro', sans-serif;
+$link-font:'Comic Neue', cursive;
 $background:#000F26;
 $card-bg:rgb(19,38,57);
 $link-color:gray;
@@ -126,3 +128,11 @@ $mobilemenu-font-muted-color:           #fff                   !default;
 $mobilemenu-deep-links-bg:              #f7f7f7                 !default;
 $mobilemenu-close-button-default-color: #fff                 !default;
 $mobilemenu-close-button-hover-color:   #fff   !default;
+
+// ----------------------------------------
+   // -- .breadcrumb
+   // ----------------------------------------
+   $breadcrumb-link-default-color: gray               !default;
+   $breadcrumb-link-hover-color:   #fff     !default;
+   $breadcrumb-link-active-color:  gray !default;
+   $breadcrumb-arrow-color:        #d1d1d1                !default;

@@ -1,14 +1,16 @@
 //React
 import React,{useState} from "react";
+//core-comonents
+import Link from 'next/link';
 //third-party
 import classNames from 'classnames';
+import {connect} from 'react-redux';
 // reactstrap components
 import {
   Collapse,
   NavbarBrand,
   Navbar,
   NavItem,
-  NavLink,
   Nav
 } from "reactstrap";
 import {mobileMenuOpen} from '../../store/mobile-menu';
@@ -35,45 +37,51 @@ const ComponentsNavbar = (props) => {
         <Collapse navbar>
             <Nav className="mx-auto" navbar>
               <NavItem>
-                <NavLink href="/" className={
-                  classNames({'nav_link-active':props.pathname === "/"})
-                }>
-                  Home
-                </NavLink>
+                <Link href="/" >
+                  <a className={classNames({'nav_link-active':props.pathname === "/"})}>
+                    Home
+                  </a>
+                </Link>
               </NavItem> 
               <NavItem>
-                <NavLink href="/covid19" className={
-                  classNames({'nav_link-active':props.pathname === "/covid19"})
-                }>
-                  Covid19
-                </NavLink>
+                <Link href="/covid19">
+                  <a className={classNames({'nav_link-active':props.pathname === "/covid19"})}>
+                    Covid19
+                  </a>
+                </Link>
               </NavItem>               
               <NavItem>
-                <NavLink href="/market_place" >Market place</NavLink>
+                <Link href="/market_place" >
+                  <a>Market place</a>
+                </Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/hostels" >Hostels</NavLink>
+                <Link href="/hostels">
+                  <a>Hostels</a>
+                </Link>
               </NavItem>
               <NavItem>
-                  <NavLink href="/bs/ovo_fries" >Ovo fry's</NavLink>
+                  <Link href="/bs/ovo_fries" >
+                    <a>Ovo fry's</a>
+                  </Link>
               </NavItem>
             </Nav>
             <Nav className="ml-auto" navbar>
                 
                 <NavItem>
-                <NavLink href="/account/dashboard">
-                  Dashboard
-                </NavLink>
+                <Link href="/account/dashboard">
+                  <a>Dashboard</a>
+                </Link>
                 </NavItem>
                 <NavItem>
-                <NavLink href="/account/store" >
-                  My store
-                </NavLink>
+                <Link href="/account/store" >
+                 <a>My store</a> 
+                </Link>
                 </NavItem>
                 {
                   user_token ? (
                   <NavItem>
-                  <NavLink href="/account/logout">Logout</NavLink>
+                  <Link href="/account/logout"><a>Logout</a></Link>
                   </NavItem>
                 ) : null
                 }                         
@@ -90,4 +98,7 @@ ComponentsNavbar.getInitialProps = ({store,pathname}) => {
         token,mobileMenuOpen,pathname
     }
 };
-export default ComponentsNavbar;
+const dispatchToProps = {
+  mobileMenuOpen
+};
+export default connect(null,dispatchToProps)(ComponentsNavbar);

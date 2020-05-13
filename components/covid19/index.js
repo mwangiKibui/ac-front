@@ -1,13 +1,14 @@
 //react
 import React,{Component} from 'react';
 //third-party
-import {ClipLoader} from 'react-spinners';
+// import {ClipLoader} from 'react-spinners';
 import {connect} from 'react-redux';
 //core-components
 import Cards from './Cards';
 import Chart from './Chart';
 import SelectCountry from './SelectCountry';
-import {fetchData} from '../../store/covid19';
+import {fetchData,fetchcountries} from '../../store/covid19';
+import PageLoader from '../shared/Loader';
 
 class Covid19 extends Component{
     state = {
@@ -16,9 +17,16 @@ class Covid19 extends Component{
         deaths:this.props.deaths,
         lastUpdate:this.props.lastUpdate,
         countries:this.props.countries,
-        loading:false,
+        loading:true,
         country:''
     };
+    async componentDidMount(){
+        await this.props.fetchData().then(async () => {
+            await this.props.fetchcountries().then(() => {
+                return this.setState({loading:false})
+            })
+        })
+    }
     componentDidUpdate(prevProps){
         if(this.props.recovered !== prevProps.recovered){
             this.setState({recovered:this.props.recovered})
@@ -26,11 +34,13 @@ class Covid19 extends Component{
         if(this.props.confirmed !== prevProps.confirmed){
             this.setState({confirmed:this.props.confirmed});
         };
+        if(this.props.countries !== prevProps.countries){
+            this.setState({countries:this.props.countries})
+        }
         if(this.props.deaths !== prevProps.deaths){
             this.setState({deaths:this.props.deaths});
         };
     };
-
     handleCountryChange = async (country) => {
         this.setState({loading:true});
         await this.props.fetchData(country).then(() => {
@@ -47,12 +57,9 @@ class Covid19 extends Component{
             <>
             {
                this.state.loading ? (
-                   <div className="text-center" style={{width:'100%'}}>
-                       <ClipLoader size={30} color="#009933" />
-                   </div>
+                   <PageLoader />
                ) : (
                    <>
-
                        {/** we start off with cards */}
                        <section className="cards">
                        <Cards confirmed={this.state.confirmed} recovered={this.state.recovered} 
@@ -91,7 +98,8 @@ const mapToProps = state => ({
     countries:state.covid19.countries
 });
 const dispatchToProps = {
-    fetchData
+    fetchData,
+    fetchcountries
 };
 
 export default connect(mapToProps,dispatchToProps)(Covid19)

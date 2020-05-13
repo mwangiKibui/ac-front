@@ -6,6 +6,7 @@ import CountUp from 'react-countup';
 
 
 const Cards = ({confirmed,recovered,deaths,lastUpdate}) => {
+    console.log(`confirmed cases ${confirmed.value}`)
     return (
         <div className='row'>
 

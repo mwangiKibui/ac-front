@@ -14,7 +14,7 @@ const SellerCard = ({data,user,subscribe,loading,error}) => {
    
     const [hasSubscribed,setHasSubscribed] = useState(false);
     const [isOpen,setIsOpen] = useState(false);
-    const [action,setAction] = useState('Subscribe');
+    const [action,setAction] = useState('subscribe');
     const toggle = () => setIsOpen(!isOpen);
 
     useEffect(() => {
@@ -63,7 +63,7 @@ const SellerCard = ({data,user,subscribe,loading,error}) => {
             </Link>
             <button className={hasSubscribed ? 'btn btn-info' : 'btn btn-outline-info'} onClick={()=>handleSubscribe()}>
                 {
-                    hasSubscribed ? 'Subscribed' : action
+                    hasSubscribed ? 'subscribed' : action
                 }
             </button>
             <ModalAccount isOpen={isOpen} toggle={toggle} />

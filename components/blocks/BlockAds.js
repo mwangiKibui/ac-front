@@ -1,15 +1,21 @@
 //React
 import React from 'react';
+//third-party
+import {connect} from 'react-redux';
 //core-components
 import BlockHeader from '../shared/BlockHeader';
 //shared components
 import ProductCard from '../shared/ProductCard';
 
-const BlockAds = ({products}) => {
+const BlockAds = ({products}) =>  {
+    
     return (
         <section className="blockAds">
             <div className="container">
                 <div className="row">
+                    {
+                        
+                    <>
                     <div className="col-12 col-sm-12 col-md-12">
                         <BlockHeader title="Trending Ads" link={'/products'}/>
                     </div>
@@ -20,10 +26,13 @@ const BlockAds = ({products}) => {
                             </div>
                         ))
                     }
+                    </>
+                        
+                    }
+                    
                 </div>
             </div>
         </section>
     )
 };
-
-export default BlockAds;
+export default connect(null,null)(BlockAds);

@@ -8,6 +8,7 @@ import {ClipLoader} from 'react-spinners';
 //components
 import Error from '../../../components/shared/Error';
 import ReviewCard from '../../../components/shared/ReviewCard';
+import BreadCrumb from '../../../components/shared/breadcrumbs';
 import {fetchSpecificHostel,loadReviews} from '../../../store/hostels';
 import {fetchUser} from '../../../store/user';
 import ModalReview from '../../../components/shared/ModalReview';
@@ -74,6 +75,16 @@ class Reviews extends Component {
            
             <div className="container">
                 <div className="row">
+                    <div className="col-12 col-sm-12 col-md-12">
+                        <BreadCrumb
+                        breadcrumb={[
+                            {title:'Home',url:'/'},
+                            {title:'Hostels',url:'/hostels'},
+                            {title:`${this.props.hostel['name']}`,url:`/hostels/${this.props.hostel['slug']}`},
+                            {title:'Reviews',url:`/hostels/${this.props.hostel['slug']}/reviews`}
+                        ]}
+                        />
+                    </div>
                     {
                         this.state.error ? (
                             <Error message={this.state.error} />

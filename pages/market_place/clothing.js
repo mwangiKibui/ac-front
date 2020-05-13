@@ -1,9 +1,13 @@
 //React
 import React,{useState} from 'react';
 //third-party
+import {ClipLoader} from 'react-spinners';
 //components
 import Layout from '../../components/Layout';
+import Pagination from '../../components/Pagination';
+import Error from '../../components/shared/Error';
 import BlockHeader from '../../components/shared/BlockHeader';
+import BreadCrumb from '../../components/shared/breadcrumbs';
 import {fetchPremiums,fetchProducts} from '../../store/products';
 import {loadServices} from '../../store/services';
 import Items from '../../components/mp/Items';
@@ -13,6 +17,19 @@ import Meta from '../../partials/seo-meta';
 const Clothing = ({premiums,basic,services,related}) => {
 
     const [items] = useState([...premiums,...basic,...services].filter(prod => prod.type === "clothing"));
+    const [pending,setPending] = useState(false);
+    const [currentPage,setCurrentPage] = useState(1);
+
+    const paginate = number => {
+
+        setTimeout(() => {
+            setCurrentPage(number);            
+            return setPending(false);
+        },1000);
+
+        setPending(true);
+        
+    };
     
     return (
         <Layout>
@@ -25,13 +42,35 @@ const Clothing = ({premiums,basic,services,related}) => {
             <section className="clothing">
                 <div className="container">
                     <div className="row"> 
-
+                        <div className="co-12 col-sm-12 col-md-12">
+                            <BreadCrumb
+                            breadcrumb={[
+                                {title:'Home',url:'/'},
+                                {title:'Market Place',url:'/market_place'},
+                                {title:'Clothing',url:'/market_place/clothing'}
+                            ]}
+                            />
+                        </div>
                         <div className="col-12 col-sm-12 col-md-12">
                         <BlockHeader title="Clothing(s) at allcomrades" />
                         </div>
-                        <Items items={items} page={true}/>
-                        
-
+                        {
+                            pending ? (
+                                <div className="col-12 col-sm-12 col-md-12">
+                                    <ClipLoader size="30px" color="#009933" />
+                                </div>
+                            ) : (
+                                items.length > 0 ? (
+                                    <Items items={items} page={true}/>
+                                ) : (
+                                    <Error message={'No clothings uploaded yet!!'} btn={true} />
+                                )
+                            )
+                        }
+                        <div className="col-12 col-sm-12 col-md-12">
+                            <Pagination elementsPerPage={8} totalElements={items.length} paginate={paginate}
+                            currentPage={currentPage}/>
+                        </div>
                     </div>
                     <Related data={related} title="Related" card="products"/>
                 </div>                

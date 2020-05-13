@@ -5,6 +5,7 @@ import React,{useState} from 'react';
 import {fetchHostels} from '../../store/hostels';
 import Layout from '../../components/Layout';
 import BlockHeader from '../../components/shared/BlockHeader';
+import BreadCrumb  from '../../components/shared/breadcrumbs';
 import Pagination from '../../components/Pagination';
 import BlockHostels from '../../components/hostels/Hostels';
 import Meta from '../../partials/seo-meta';
@@ -40,7 +41,14 @@ const Hostels = (props) => {
             <section className="hostels">
             <div className="container">
                 <div className="row">
-
+                    <div className="col-12 col-sm-12 col-md-12">
+                        <BreadCrumb 
+                        breadcrumb={[
+                            {title:'Home',url:'/'},
+                            {title:'Hostels',url:'/hostels'}
+                        ]}
+                        />
+                    </div>
                     <div className="col-12 col-sm-12 col-md-12">
                         <BlockHeader title="Hostels around Main campus" />
                     </div>

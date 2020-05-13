@@ -9,7 +9,6 @@ const Pagination = ({elementsPerPage,totalElements,paginate,currentPage}) => {
     for(let i = 1;i <= Math.ceil(totalElements/elementsPerPage); i++){
         pageNumbers.push(i);
     };
-    console.log(`page no`,pageNumbers)
     return (
         <nav className="pagination_nav">
             <ul className="pagination">

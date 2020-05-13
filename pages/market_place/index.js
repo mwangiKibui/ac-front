@@ -4,6 +4,7 @@ import React from 'react';
 //components
 import Layout from '../../components/Layout';
 import Meta from '../../partials/seo-meta';
+import Breadcrumb from '../../components/shared/breadcrumbs';
 import {fetchPremiums,fetchProducts} from '../../store/products';
 import {fetchCategories} from '../../store/categories';
 import {loadServices} from '../../store/services';
@@ -19,7 +20,15 @@ const Mp = ({products,services}) => {
             image={products[0]['profiles'][0]}
             />
             <section className="mp">
-                <div className="container">
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-12 col-sm-12 col-md-12">
+                            <Breadcrumb breadcrumb={[
+                                {url:'/',title:'Home'},
+                                {url:'/market_place',title:'Market place'}
+                            ]}/>
+                        </div>
+                    </div>
                     <MarketPlace products={products} services={services} />
                 </div>                
             </section>

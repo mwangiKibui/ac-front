@@ -62,15 +62,11 @@ function ProdCard(props) {
                  </Avatar>
              }
              title={
-                 props.data.kind === "product" ? (
-                 <Link href={`/products/${props.data.slug}`}>
+                 
+                 <Link href={`/market_place/${props.data.slug}`} shallow={true}>
                      <a className="product_card-name">{props.data.name}</a>
                  </Link>
-                 ) : (
-                 <Link href={`/services/${props.data.slug}`} >
-                     <a className="product_card-name">{props.data.name}</a>
-                 </Link>
-                 )
+                 
              }
              subheader={
                 <Link href={`/platform/user_profile/${props.data.seller.slug}`} >

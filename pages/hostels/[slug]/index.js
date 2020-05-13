@@ -6,6 +6,7 @@ import {useRouter} from 'next/router';
 //components
 import Layout from '../../../components/Layout';
 import Hostel from '../../../components/hostels/Hostel';
+import BreadCrumb from '../../../components/shared/breadcrumbs';
 import {fetchSpecificHostel,fetchHostels,loadReviews} from '../../../store/hostels';
 import Meta from '../../../partials/seo-meta';
 
@@ -20,9 +21,22 @@ const HostelDisplay = ({hostel,related,error}) => {
             title={`${hostel['name']} Hostels`}
             image={`${hostel['profiles'][0]}`}
             />
+            <section className="hostel">
             <div className="container">
+            <div className="row">
+            <div className="col-12 col-sm-12 col-md-12">
+                <BreadCrumb
+                breadcrumb={[
+                    {title:'Home',url:'/'},
+                    {title:'Hostels',url:'/hostels'},
+                    {title:`${hostel['name']}`,url:`/hostels/${hostel['name']}`}
+                ]}
+                />
+            </div>
+            </div>
             <Hostel slug={slug} hostel={hostel} related={related} error={error}/>
-            </div>            
+            </div> 
+            </section>           
         </Layout>
     )
 

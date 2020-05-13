@@ -10,6 +10,7 @@
     color:rgba(0,0,0,1);
     height:80px;
     padding:20px;
+    color: #fff;
     font-family:$font;
     z-index:100;
     border-radius:0px;
@@ -36,14 +37,21 @@
     font-family: $font;
     display: flex;
 }
-.nav-link{
-    color:rgba(0,0,0,1);
+
+.nav-item a{
+    color:rgba(0,0,0,1) !important;
     transition:1s ease-in-out;
+    color: #fff;
     font-size: 18px;
-    font-family: $font;
+    font-family: $link-font;
+    font-weight: bold;
+    top:5px;
+    padding:1px 10px;
+    line-height: 20px;
     &:hover{
         color:coral;
         transition:1s ease-in-out;
+        text-decoration: none;
     }
 };
 .nav_link-active{

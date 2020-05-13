@@ -6,6 +6,7 @@ import Layout from '../../components/Layout';
 import {fetchProducts,fetchOvo} from '../../store/bs';
 import Profile from '../../components/bs/Ovo';
 import Meta from '../../partials/seo-meta';
+import BreadCrumb from '../../components/shared/breadcrumbs';
 
 const Ovo = (props) => {
     const [_meals] = useState(props.meals.slice(0,3));
@@ -21,6 +22,15 @@ const Ovo = (props) => {
             />
             <section className="ovo_fries">
                 <div className="container">
+                <div className="row">
+                    <div className="col-12 col-sm-12 col-md-12">
+                        <BreadCrumb 
+                        breadcrumb={[
+                            {title:'Home',url:'/'}
+                        ]}
+                        />
+                    </div>
+                </div>
                 <Profile meals={_meals} drinks={_drinks} offers={_offers} />
                 </div>                
             </section>

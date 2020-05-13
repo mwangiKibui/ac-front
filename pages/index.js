@@ -17,7 +17,7 @@ import BlockAd from '../components/blocks/BlockAd';
 import BlockCovid from '../components/blocks/BlockCovid';
 import BlockInfluencers from '../components/blocks/BlockInfluencers';
 import BlockSellers from '../components/blocks/BlockSellers';
-import {fetchProducts,fetchPremiums} from '../store/products';
+import {fetchProducts} from '../store/products';
 import {loadServices} from '../store/services';
 import {fetchHostels} from '../store/hostels';
 import {loadInfluencers} from '../store/influencers';
@@ -25,7 +25,7 @@ import {loadInfluencers} from '../store/influencers';
 //your scss styles
 import '../styles/style.scss'
 
-const  Default = (props) => {
+const   Default = (props) =>  {
         return (
             <Layout>
 
@@ -45,7 +45,6 @@ const  Default = (props) => {
 };
 Default.getInitialProps = async ({store}) => {
     await store.dispatch(fetchProducts());
-    await store.dispatch(fetchPremiums());
     await store.dispatch(loadServices());
     await store.dispatch(fetchHostels());
     await store.dispatch(loadInfluencers());
@@ -61,6 +60,6 @@ Default.getInitialProps = async ({store}) => {
         "hostels" : hostels,
         "influencers" : influencers,
         "sellers" : sellers
-    }
-}
+    };
+};
 export default connect()(Default);

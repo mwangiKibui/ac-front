@@ -13,6 +13,7 @@ const Layout = (props) => {
             <Head>
                 <title>allcomrades</title>
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+                <link rel="stylesheet" href="/static/css/nprogress.css" />
             </Head>
             <div className="site__body">
             <Navbar />
