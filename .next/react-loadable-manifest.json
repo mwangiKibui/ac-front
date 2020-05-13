@@ -1,102 +1,46 @@
 {
   "../../partials/photoswipe": [
     {
-      "id": "./styles/style.scss",
-      "name": "./styles/style.scss",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 1,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 2,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 3,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 4,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 5,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 6,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 7,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./node_modules/photoswipe/dist/photoswipe.css",
+      "id": "NDqF",
       "name": "./node_modules/photoswipe/dist/photoswipe.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
+      "file": "static/chunks/styles.13b35aaed15e70199f3e.js",
+      "publicPath": "static/chunks/styles.13b35aaed15e70199f3e.js"
     },
     {
-      "id": 10,
+      "id": 8,
       "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
+      "file": "static/chunks/styles.13b35aaed15e70199f3e.js",
+      "publicPath": "static/chunks/styles.13b35aaed15e70199f3e.js"
     },
     {
-      "id": "./node_modules/photoswipe/dist/default-skin/default-skin.css",
+      "id": "P7Wk",
       "name": "./node_modules/photoswipe/dist/default-skin/default-skin.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
+      "file": "static/chunks/styles.13b35aaed15e70199f3e.js",
+      "publicPath": "static/chunks/styles.13b35aaed15e70199f3e.js"
     },
     {
-      "id": 12,
+      "id": 9,
       "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
+      "file": "static/chunks/styles.13b35aaed15e70199f3e.js",
+      "publicPath": "static/chunks/styles.13b35aaed15e70199f3e.js"
     },
     {
-      "id": "./node_modules/photoswipe/dist/photoswipe-ui-default.js",
+      "id": "FP2o",
       "name": "./node_modules/photoswipe/dist/photoswipe-ui-default.js",
-      "file": "static/chunks/1.js",
-      "publicPath": "static/chunks/1.js"
+      "file": "static/chunks/44.c0106e03038ed37ce7d0.js",
+      "publicPath": "static/chunks/44.c0106e03038ed37ce7d0.js"
     },
     {
-      "id": "./node_modules/photoswipe/dist/photoswipe.js",
-      "name": "./node_modules/photoswipe/dist/photoswipe.js",
-      "file": "static/chunks/1.js",
-      "publicPath": "static/chunks/1.js"
-    },
-    {
-      "id": "./partials/photoswipe.js",
+      "id": "ew+A",
       "name": "./partials/photoswipe.js",
-      "file": "static/chunks/1.js",
-      "publicPath": "static/chunks/1.js"
-    }
-  ],
-  "./dev/noop": [
+      "file": "static/chunks/44.c0106e03038ed37ce7d0.js",
+      "publicPath": "static/chunks/44.c0106e03038ed37ce7d0.js"
+    },
     {
-      "id": "./node_modules/next/dist/client/dev/noop.js",
-      "name": "./node_modules/next/dist/client/dev/noop.js",
-      "file": "static/chunks/0.js",
-      "publicPath": "static/chunks/0.js"
+      "id": "sk+M",
+      "name": "./node_modules/photoswipe/dist/photoswipe.js",
+      "file": "static/chunks/44.c0106e03038ed37ce7d0.js",
+      "publicPath": "static/chunks/44.c0106e03038ed37ce7d0.js"
     }
   ]
 }
