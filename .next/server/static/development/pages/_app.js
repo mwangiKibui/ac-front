@@ -812,7 +812,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const ComponentsNavbar = props => {
   const {
     0: color
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("bg-light");
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("bg-transparent");
   const user_token = props.token;
   return __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_4__["Navbar"], {
     className: "fixed-top " + color,

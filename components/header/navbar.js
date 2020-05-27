@@ -16,7 +16,7 @@ import {
 import {mobileMenuOpen} from '../../store/mobile-menu';
 
 const ComponentsNavbar = (props) => {
-    const [color] = useState("bg-light");
+    const [color] = useState("bg-transparent");
     const user_token = props.token;
     return (
       <Navbar

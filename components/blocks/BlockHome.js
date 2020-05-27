@@ -10,7 +10,7 @@ class  BlockHome extends Component {
     render(){
     return (
         
-        <section className="home" style={{backgroundImage:`url(/static/images/nba.webp)`}}>
+        <section className="home" style={{backgroundImage:`url(/static/images/home.jpg)`}}>
             <div className="home_overlay">
             <div className="home_content"> 
             <div className="container">
@@ -19,8 +19,8 @@ class  BlockHome extends Component {
                 <div className="slideshow_content">
 
                     <div className="slideshow_content_title">
-                    <h2>A comrades platform, </h2>
-                    <h2>For the rest of us.</h2>
+                    <h2>Post your Product, </h2>
+                    <h2>for free.</h2>
                     </div>
 
                     <div className="slideshow_content_action">
@@ -30,7 +30,7 @@ class  BlockHome extends Component {
                     smooth={true}
                     delay={1}
                     >
-                        Explore our services
+                        add a product
                     </Link>
                     </div>
                 

@@ -715,7 +715,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 var ComponentsNavbar = function ComponentsNavbar(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("bg-light"),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("bg-transparent"),
       color = _useState[0];
 
   var user_token = props.token;
