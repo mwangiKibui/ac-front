@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[31],{"W/Es":function(n,w,o){(window.__NEXT_P=window.__NEXT_P||[]).push(["/market_place/[slug]",function(){return o("mE3r")}])},mE3r:function(n,w){}},[["W/Es",0]]]);

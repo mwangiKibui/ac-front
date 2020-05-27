@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[27],{E0wc:function(n,w){},l387:function(n,w,o){(window.__NEXT_P=window.__NEXT_P||[]).push(["/hostels/[slug]",function(){return o("E0wc")}])}},[["l387",0]]]);

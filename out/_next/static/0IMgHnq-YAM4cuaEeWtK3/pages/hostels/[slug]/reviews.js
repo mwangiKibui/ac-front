@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[28],{"+IXx":function(n,w){},"q/mb":function(n,w,o){(window.__NEXT_P=window.__NEXT_P||[]).push(["/hostels/[slug]/reviews",function(){return o("+IXx")}])}},[["q/mb",0]]]);
