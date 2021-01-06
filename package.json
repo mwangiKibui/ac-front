@@ -19,7 +19,7 @@
     "@material-ui/icons": "^4.9.1",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap-css-only": "^4.4.1",
     "chart.js": "^2.9.3",
     "classnames": "^2.2.6",
