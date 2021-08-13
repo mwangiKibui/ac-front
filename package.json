@@ -23,7 +23,7 @@
     "bootstrap-css-only": "^4.4.1",
     "chart.js": "^2.9.3",
     "classnames": "^2.2.6",
-    "next": "^9.3.5",
+    "next": "^11.1.0",
     "next-redux-wrapper": "^5.0.0",
     "node-sass": "^4.13.1",
     "nprogress": "^0.2.0",
